@@ -8,10 +8,7 @@
 \inputtable{q1_duration_by_target}
 \fig{q1_numeric_distributions}{Distributions of heavy-tailed / sentinel-valued numeric features (log count axis).}
 
-% TODO(student): interpret
-\studenttodo{Q1a: describe domain, target, feature types; discuss missing/\texttt{unknown} values
-(esp.\ \texttt{poutcome}, \texttt{contact}), duplicates, anomalies (\texttt{pdays}=-1 sentinel, negative
-\texttt{balance}, \texttt{campaign} extremes) and why \texttt{duration} is a problematic (leaking) predictor.}
+The UCI Bank Marketing (\texttt{bank-full}) dataset comprises 45,211 telemarketing records from a Portuguese bank with 16 predictors (7 numeric and 9 categorical) and a binary target \texttt{y} indicating term-deposit subscription (11.7\% \texttt{yes}). While the raw table contains zero exact duplicate rows, excluding \texttt{duration} yields 16 near-duplicate feature profiles. Missingness encoded as \texttt{unknown} is highly structured rather than random: \texttt{poutcome} is missing in 81.7\% of rows, matching the 36,954 records where \texttt{pdays} $= -1$, which is a sentinel code denoting ``never previously contacted'' rather than a true elapsed-day measurement; treating $-1$ as an ordinary numeric value would distort distance-based and linear models, motivating an explicit \texttt{prev\_contacted} indicator. Similarly, the 28.8\% missingness in \texttt{contact} reflects unrecorded contact channels from earlier campaign waves and carries strong predictive signal (only 4\% positive rate). Among numeric anomalies, 3,766 rows have negative \texttt{balance} (range $-8{,}019$ to $102{,}127$), which represents legitimate overdrafts rather than data errors; \texttt{campaign} is heavily right-skewed (244 rows $> 20$, maximum 63), which disproportionately affects distance-based, linear, and Gaussian-assumption models; and \texttt{day\_of\_week} actually encodes the day of the month (1--31). Crucially, \texttt{duration} exhibits a large class gap (mean 537\,s for \texttt{yes} vs.\ 221\,s for \texttt{no}), but call duration is only known after a call ends and is unavailable prior to dialing; retaining it would constitute severe post-outcome target leakage, so it is dropped before modeling.
 
 \subsection{Q1b: Partitioning}
 A stratified 70/15/15 train/validation/test split was created once with seed 42 before any fitting
@@ -23,10 +20,7 @@ Figure~\ref{fig:q1_split_deviation}).
 \inputtable{q1_split_comparison}
 \fig{q1_split_deviation}{Absolute deviation of the positive-class proportion of each partition from the reference proportion, over 100 seeds.}
 
-% TODO(student): interpret
-\studenttodo{Q1b: justify the 70/15/15 + CV design; compare stratified vs.\ random deviations (full vs.\
-small sample: zero/few positives in val/test); when can stratification itself fail (e.g.\ very rare classes,
-temporal/grouped data, distribution shift, multi-label)?}
+We partition the dataset once at the outset using a stratified 70/15/15 split (seed 42), yielding 31,647 training, 6,782 validation, and 6,782 locked test observations. Combining 5-fold stratified cross-validation (CV) on the training split with a separate validation set cleanly separates model selection roles: CV tunes hyperparameters strictly within training, whereas the untouched validation set supports unbiased model comparison, error analysis, robustness testing, paired bootstrap inference, and MCDA weighting while keeping the test set completely locked. Across 100 random seeds, stratified splitting reduces validation and test positive-rate deviation from roughly 0.30 percentage points (max 1.06\,pp) under simple random splitting to 0.007\,pp (max 0.009\,pp) on the full dataset. On a small subsample ($n = 200$), the advantage becomes critical: random splitting produces deviations averaging 4.1--4.3\,pp (up to 16.2\,pp) and leaves fewer than three positive instances in 35\% of test splits and 44\% of validation splits, whereas stratification maintains a 0.5\,pp deviation with zero sparse splits. Having fewer than three positives makes minority-class recall and Macro-F1 highly volatile or undefined. Nevertheless, stratification alone is insufficient when observations have temporal ordering (where future campaign regimes can leak into past folds) or group structure (such as repeated calls to the same client appearing across both training and test sets), which would instead require chronological or group-aware splits.
 
 \subsection{Q1c: Leakage-safe preprocessing}
 All transformations are steps of an sklearn/imblearn \texttt{Pipeline} (\texttt{src/preprocessing.py}) and are
@@ -37,10 +31,7 @@ one-hot encoding with \texttt{handle\_unknown="ignore"} (unseen categories becom
 row-wise engineering (no fitted statistics) is the indicator \texttt{prev\_contacted} = [\texttt{pdays} $\neq -1$].
 \inputtable{q1_transform_matrix}
 
-% TODO(student): interpret
-\studenttodo{Q1c: explain why each transformation matters (or not) for each model family (scale sensitivity of
-distances/penalties, NB distributional assumptions, split invariance of trees); justify the constant
-\texttt{"missing"} level instead of most-frequent imputation.}
+All preprocessing steps are encapsulated inside scikit-learn \texttt{Pipeline} objects so that imputers, scalers, discretizers, and encoders are fit exclusively on training folds. Feature scaling is essential for $k$NN because unscaled features with wide ranges such as \texttt{balance} (tens of thousands) would completely dominate Euclidean or Manhattan distances over smaller-scale features like \texttt{age} or binary indicators. Scaling is equally necessary for Logistic Regression because the $L_2$ penalty shrinks all coefficients uniformly; without standardization, large-scale features require smaller weights and are penalized less heavily, distorting both regularization and optimization convergence. For Naive Bayes, \texttt{GaussianNB} assumes class-conditional normality, which is severely violated by heavily right-skewed numeric features (\texttt{balance}, \texttt{campaign}) and binary one-hot columns; discretizing numeric predictors into five quantile bins and applying \texttt{BernoulliNB} aligns far better with the model's distributional assumptions. In contrast, tree-based models (Decision Trees, Random Forests, and Boosting) partition features via rank-invariant threshold splits and therefore require no scaling. For categorical missingness, retaining \texttt{unknown} as an explicit \texttt{missing} level preserves informative structural signals---imputing \texttt{poutcome} with the mode (e.g., \texttt{failure}) would erroneously conflate never-contacted clients with prior rejections---while \texttt{handle\_unknown="ignore"} ensures robustness if a rare category absent from a training fold appears during validation or testing.
 
 \subsection{Q1d: Controlled leakage demonstration}
 Model: Logistic Regression ($C=1$, \texttt{class\_weight=balanced}). Rows labelled \textbf{INVALID} are
@@ -52,17 +43,9 @@ pipeline (for target encoding, sklearn's cross-fitted \texttt{TargetEncoder}). T
 \inputtable{q1_leakage_demo}
 \fig{q1_leakage_demo}{Cross-validation and validation Macro-F1 of valid vs.\ deliberately INVALID procedures.}
 
-% TODO(student): interpret
-\studenttodo{Q1d: quantify the apparent improvement of each INVALID procedure over its valid counterpart and
-explain why it is untrustworthy (information unavailable at prediction time / information from evaluation rows
-entering the fit). Note which leakage was large and which was small here and why (e.g.\ global scaling with
-31k rows changes little; target encoding of rare groups memorises labels).}
+The controlled leakage demonstration with Logistic Regression quantifies how severely invalid procedures can inflate performance estimates. Including post-outcome \texttt{duration} (\texttt{INVALID\_1}) produces the largest distortion, inflating CV Macro-F1 by $+0.118$ (0.729 vs.\ 0.611), validation Macro-F1 by $+0.121$ (0.733 vs.\ 0.612), and validation ROC-AUC by $+0.138$ (0.910 vs.\ 0.772), because future call-length information directly leaks outcome knowledge. Computing target encoding for \texttt{job $\times$ month $\times$ day} across all rows (\texttt{INVALID\_3}) causes the second largest inflation, increasing CV Macro-F1 by $+0.070$ (0.703 vs.\ 0.632) and validation Macro-F1 by $+0.069$ (0.706 vs.\ 0.637) relative to out-of-fold pipeline encoding; in small interaction cells, each observation's own label heavily influences its encoded value, allowing the classifier to memorize targets. Global scaling and \texttt{SelectKBest} prior to splitting (\texttt{INVALID\_2}) yields the smallest inflation ($+0.005$ CV, $+0.014$ validation) because full-dataset and training-set moments are nearly identical at $n \approx 31{,}647$ with few features; however, in small-$n$, high-$p$ regimes, global feature selection causes massive optimistic bias. Crucially, CV and validation scores remain closely aligned across all three invalid procedures because the validation split is contaminated by the same leakage source, demonstrating that CV--validation agreement alone cannot rule out leakage.
 
 \subsection{Q1e: Protocol diagram and failure modes}
 \fig{q1_protocol}{Experimental protocol.}
 
-% TODO(student): interpret
-\studenttodo{Q1e: explain at least three failure modes that invalidate results even if the code runs (e.g.\
-preprocessing fit outside folds, selecting on test, leaking post-outcome features, duplicate/near-duplicate
-rows across partitions, temporal ordering of campaigns, threshold tuned on evaluation data, unstable single
-split / no variance estimate).}
+Even when code executes without runtime errors, several silent failure modes can invalidate empirical conclusions. First, fitting preprocessors, resamplers, or feature selectors outside cross-validation folds leaks distributional or label information into validation metrics; our protocol prevents this by placing all transformations inside \texttt{Pipeline} objects fit strictly on training folds. Second, post-outcome and temporal leakage can silently inflate scores: while dropping \texttt{duration} removes direct target leakage, random stratified splitting across a multi-month campaign can still allow future macroeconomic or seasonal regimes to inform past predictions. Third, the 16 near-duplicate rows that emerge after removing \texttt{duration} could span both training and evaluation splits, enabling minor memorization (negligible at $n = 45{,}211$, but severe in smaller datasets). Fourth, adaptive overfitting occurs when decision thresholds are tuned and reported on the same validation set or when test metrics are inspected to revise hyperparameters or selection weights; we guard against this by selecting the NB threshold on training out-of-fold predictions, freezing \texttt{selection\_rule.json} with a cryptographic hash, and locking the test split to a single logged execution of \texttt{q5\_final\_test.py}.

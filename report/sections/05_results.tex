@@ -10,20 +10,14 @@
 \fig{q2_confusion_matrices}{Validation confusion matrices of the Q2 models.}
 \fig[0.9]{q2_roc_pr}{ROC and precision--recall curves on validation.}
 
-% TODO(student): interpret
-\studenttodo{Q2a--c: compare the models (why NB representation X won; effect of $k$, weights, $p$; effect of
-$C$ and class weighting); which metric is most useful for this dataset and why (accuracy vs.\ Macro-F1 vs.\
-PR-AUC under 11.7\% prevalence); compare ROC-AUC and PR-AUC rankings.}
+Among the three baseline families on validation, Bernoulli Naive Bayes with 5-bin numeric discretization ($\alpha = 1$) achieves the highest Macro-F1 (0.662), outperforming GaussianNB because quantile binning accommodates skewed numeric predictors and binary one-hot indicators. For $k$NN, Manhattan distance ($p = 1$) with uniform weights and $k = 3$ performs best (CV Macro-F1 0.625, validation 0.630); $k = 1$ suffers from high variance (CV 0.601), whereas larger $k$ monotonically degrades CV Macro-F1 (down to 0.590 at $k = 51$) as majority-class neighbors increasingly dominate voting. Even at $k = 3$, $k$NN is overly conservative, yielding the highest precision (0.477) but very low recall (0.247) and jagged ROC/PR curves due to only four discrete probability levels. Logistic Regression ($C = 10$, \texttt{class\_weight="balanced"}) ranks first in threshold-free ranking metrics (ROC-AUC 0.772, PR-AUC 0.416) yet trails NB in Macro-F1 (0.613 vs.\ 0.662) because balanced weighting shifts predicted probabilities upward, generating 1,352 false positives (precision 0.270) at the fixed 0.5 threshold despite strong recall (0.628). Given the 11.7\% prevalence, PR-AUC (baseline 0.117 vs.\ 0.500 for ROC-AUC) is substantially more informative than ROC-AUC for separating minority-class ranking quality; paired with Macro-F1 or a cost-calibrated threshold, it best reflects the bank's asymmetric trade-off between missed subscribers (FN) and wasted call-center effort (FP).
 
 \subsection{Q2d: Class imbalance}
 \inputtable{q2_imbalance}
 \inputtable{q2_threshold_summary}
 \fig[0.7]{q2_threshold_sweep}{Threshold sweep: OOF training and validation F1 as a function of the decision threshold.}
 
-% TODO(student): interpret
-\studenttodo{Q2d: class-wise errors with and without each intervention; does aggregate accuracy conceal
-failures (compare Dummy and the no-intervention LogReg: high accuracy, low recall for \textit{yes})?
-Trade-off between recall(yes) and precision(yes); is the threshold choice transferable?}
+Without imbalance intervention, Logistic Regression achieves 0.893 accuracy yet misses 650 of 794 actual subscribers (81.9\% false-negative rate, recall 0.181), confirming that accuracy conceals severe minority-class failure. Applying \texttt{class\_weight="balanced"} cuts false negatives from 650 to 295 (recall 0.628) at the cost of increasing false positives from 75 to 1,352 (accuracy 0.757); Macro-F1 remains virtually unchanged at 0.613 because the gain in $F_1(\text{yes})$ is offset by the drop in $F_1(\text{no})$. Class weighting, \texttt{RandomOverSampler} (Macro-F1 0.612, FN 296), and \texttt{SMOTE} (0.604, FN 294) yield nearly identical outcomes because reweighting and duplicating minority instances optimize essentially the same linear loss function, while SMOTE's synthetic interpolation across sparse one-hot features introduces slight noise. For Naive Bayes, tuning the decision threshold on training out-of-fold predictions shifts the cutoff from 0.50 to 0.61 and improves validation Macro-F1 from 0.662 to 0.669 along a flat plateau. Performing threshold selection strictly on OOF training predictions prevents optimistic validation overfitting; however, the resulting $t = 0.61$ cutoff is not directly transferable to other datasets or campaigns because optimal thresholds depend on class prevalence, probability calibration, and institution-specific FP/FN costs.
 
 \subsection{Q3: Regression}
 \inputtable{q3_audit}
@@ -36,10 +30,7 @@ Trade-off between recall(yes) and precision(yes); is the threshold choice transf
 \inputtable{q3_complexity_curves}
 \fig[0.65]{q3_learning_curves}{Learning curves.}
 
-% TODO(student): interpret
-\studenttodo{Q3a--c: target distribution and cap; correlated predictors and outliers; compare models
-(Dummy vs.\ linear vs.\ non-linear); explain the complexity and learning curves with the bias--variance
-framework (where under-/over-fitting starts).}
+The California Housing target (\texttt{MedHouseVal}, in \$100,000 units) is right-skewed with a pronounced right-censoring spike at 5.0 affecting 711 training blocks (4.9\%). Feature correlations reveal strong multicollinearity between \texttt{Latitude} and \texttt{Longitude} ($r = -0.92$) and between \texttt{AveRooms} and \texttt{AveBedrms} ($r = 0.85$), while \texttt{MedInc} shows the strongest linear association with price ($r = 0.69$). On validation, all linear models (OLS, Ridge, and Lasso) plateau at $R^2 = 0.587$ (RMSE 0.726), whereas a Decision Tree reaches $R^2 = 0.700$ (RMSE 0.619) and Random Forest achieves $R^2 = 0.807$ (RMSE 0.497), confirming that housing prices depend nonlinearly on spatial coordinates and feature interactions. Complexity curves clearly illustrate the bias--variance trade-off: decision-tree CV RMSE declines through depth 9 (underfitting regime, minimum 0.657) before rising to 0.745 at depth 20 while training RMSE falls to 0.06 (overfitting regime). Polynomial expansion of degrees 3 and 4 causes CV RMSE to explode to 140--300 with massive fold variance even as training RMSE drops from 0.72 to 0.57, driven by extreme extrapolation on outlier rows in \texttt{AveRooms} and \texttt{AveOccup}. Although Random Forest exhibits a large train--validation gap ($R^2 = 0.975$ vs.\ $0.807$), ensemble averaging suppresses variance enough that its total bias$^2$ + variance error remains the lowest. Learning curves reinforce this diagnosis: OLS training and CV errors converge early near 0.73 (high bias, where additional data will not help), whereas an unpruned Decision Tree maintains zero training error while its CV error continues decreasing toward 0.75 (high variance, where more data or regularization helps).
 
 \fig{q3_coef_paths}{Ridge and Lasso coefficient paths (standardised features).}
 \begin{figure}[H]\centering
@@ -50,19 +41,13 @@ framework (where under-/over-fitting starts).}
 \inputtable{q3_sparsity}
 \inputtable{q3_corr_coef_stability}
 
-% TODO(student): interpret
-\studenttodo{Q3d: shrinkage (Ridge) vs.\ sparsity (Lasso); why the CV-optimal $\alpha$ is small here (many
-samples, few features); behaviour of the correlated pairs AveRooms/AveBedrms and Latitude/Longitude
-(sign, magnitude, bootstrap instability).}
+Both Ridge ($L_2$) and Lasso ($L_1$) select negligible regularization strengths via CV ($\alpha = 10^{-4}$ and $\alpha \approx 6.8 \times 10^{-4}$, respectively), leaving their validation performance identical to OLS ($R^2 = 0.587$, zero sparse coefficients for Lasso). This occurs because the training set has a very high observation-to-feature ratio ($n = 14{,}447$, $p = 8$), so linear estimation variance is already low; regularization becomes substantially more beneficial when $p$ is large relative to $n$ or when many noisy predictors are present. Along the regularization paths, Ridge smoothly shrinks all standardized coefficients toward zero without exact elimination, whereas Lasso induces sparsity: by $\alpha = 0.05$, it zeroes out four features (\texttt{AveRooms}, \texttt{AveBedrms}, \texttt{Population}, and \texttt{AveOccup}) and heavily shrinks \texttt{Latitude} ($-0.89 \to -0.26$) and \texttt{Longitude} ($-0.87 \to -0.22$). The collinear pair \texttt{AveRooms} ($-0.30$) and \texttt{AveBedrms} ($+0.35$) illustrates a classic multicollinearity pitfall: their opposing signs cannot be interpreted in isolation as ``more bedrooms raise price while more rooms lower it,'' since they reflect conditional room-to-bedroom ratios that partially cancel out. Bootstrap resampling confirms this instability, showing coefficient standard deviations near 0.04 for \texttt{AveRooms}/\texttt{AveBedrms}---roughly twice the 0.019 standard deviation observed for \texttt{Latitude}/\texttt{Longitude}.
 
 \fig{q3_residual_plots}{Predicted vs.\ actual and residuals vs.\ predicted on validation.}
 \inputtable{q3_top_residuals}
 \inputtable{q3_residual_by_band}
 
-% TODO(student): interpret
-\studenttodo{Q3e: interpret MAE/RMSE/R$^2$ in \$100k units; what the residual patterns suggest (capped
-target at 5.0 $\Rightarrow$ systematic under-prediction; heteroscedasticity; unusual block groups such as very
-high AveOccup); discuss at least five of the large residuals.}
+In dollar terms, Random Forest achieves a validation MAE of \$33,400 (0.334) and RMSE of \$49,700 (0.497), explaining 80.7\% of target variance ($R^2 = 0.807$). The \$16,300 gap between RMSE and MAE indicates a heavy tail of large residuals. Residual diagnostics reveal systematic regression to the mean across price bands: RF over-predicts inexpensive blocks (mean residual $-0.26$ for true values in $[0, 1]$) and severely under-predicts expensive blocks ($+0.80$ in $[4, 4.99]$ and $+0.77$ at $\ge 5.0$). Right-censoring at 5.0 exacerbates this bias, creating a sharp diagonal boundary ($\text{residual} = 5.00001 - \hat{y}$) in the residual plots; whereas Ridge extrapolates to unphysical negative values and predictions up to 7.0, RF is strictly bounded by training-leaf averages. Inspecting the ten largest RF validation residuals shows that eight occur at the 5.00001 cap, where true market values likely exceed \$500,000. Several of these blocks (e.g., rows 6688, 15652, 10574, and 459) combine unexpectedly low \texttt{MedInc} (0.50--1.97) with prime San Francisco Bay Area or Los Angeles coordinates and capped \texttt{HouseAge} $= 52$, while row 12389 (\texttt{AveRooms} $= 10.95$) reflects an atypical luxury/resort block. Conversely, the sole large negative residual is row 9188 (actual 0.14999 [\$15,000], RF prediction 2.57, Ridge 2.58) in a relatively affluent Los Angeles-area block (\texttt{MedInc} $= 4.19$, \texttt{HouseAge} $= 52$), strongly suggesting a census coding error or anomalous non-residential property.
 
 \subsection{Q4: Decision trees, bagging, boosting}
 \inputtable{q4_dt_criterion}
@@ -71,27 +56,20 @@ high AveOccup); discuss at least five of the large residuals.}
 \fig{q4_small_tree}{Depth-3 decision tree.}
 \inputtable{q4_decision_paths}
 
-% TODO(student): interpret
-\studenttodo{Q4b: Gini vs.\ entropy (and log\_loss = entropy in sklearn, see \texttt{results/q4\_logloss\_check.json});
-effect of each complexity control; interpret at least three decision paths in domain terms.}
+For the single Decision Tree, the CV Macro-F1 difference between Gini impurity (0.671) and entropy (0.656) is 0.015, which lies well within the model's cross-validation standard deviation ($\approx 0.024$) and is therefore not statistically meaningful; \texttt{log\_loss} produces identical splits and predictions to \texttt{entropy} as expected. Among complexity controls, cost-complexity pruning (\texttt{ccp\_alpha}) is by far the most effective: increasing \texttt{ccp\_alpha} from 0 to 0.001 shrinks the tree from 327 leaves (depth 12) to 26 leaves (depth 9) and boosts validation Macro-F1 from 0.618 to 0.696 by removing noisy, overfitted subtrees. Once \texttt{ccp\_alpha} $= 0.001$ is active, varying \texttt{max\_depth} above 12 or \texttt{min\_samples\_leaf} between 1 and 50 has virtually no additional effect because pruning already eliminates weak lower branches. In the depth-3 interpretable tree, the root split on \texttt{poutcome\_success} reflects strong domain intuition: clients who subscribed in a prior campaign have already demonstrated trust and product affinity. Tracing three concrete decision paths: (1) clients without prior success but with a recorded contact channel and no housing loan (\texttt{housing\_yes} $= 0$) are predicted \texttt{yes} (weighted class split 0.41/0.59), likely reflecting greater disposable cash flow; (2) clients without prior success, missing contact channel, and unmarried are predicted \texttt{no} (0.69/0.31); and (3) clients without prior success, missing contact channel, and married are strongly predicted \texttt{no} (0.81/0.19, where validation row 14 is a false negative), highlighting how missing contact metadata proxies older, low-conversion campaign periods.
 
 \fig{q4_rf_curves}{Random Forest: training vs.\ validation Macro-F1.}
 \inputtable{q4_rf_cv_results}
 \inputtable{q4_rf_tree_correlation}
 \fig[0.6]{q4_rf_tree_correlation}{Tree correlation vs.\ max\_features.}
 
-% TODO(student): interpret
-\studenttodo{Q4c: how bagging and random feature subsets reduce variance and tree correlation; trade-off
-between single-tree strength and correlation; behaviour with number of trees and depth.}
+Random Forest reduces prediction variance via the ensemble variance identity $\text{Var}(\bar{f}) = \rho\sigma^2 + \frac{1-\rho}{B}\sigma^2$, where $B$ is the number of trees (\texttt{n\_estimators}) and $\rho$ is the average pairwise correlation between tree predictions. Increasing $B$ drives the second term toward zero without inducing overfitting: validation Macro-F1 improves from 0.689 ($B=10$) to 0.701 ($B=25$) and 0.706 ($B=100$), plateauing at 0.707 ($B=400$) while training Macro-F1 stabilizes near 0.88. Increasing \texttt{max\_depth} widens the train--validation gap (training rises from 0.555 at depth 2 to 0.88 at \texttt{None}), yet unlike a single Decision Tree, validation Macro-F1 does not collapse, peaking at 0.707 (depth 18) and remaining 0.703 at \texttt{None} because averaging dampens the variance of deep trees. Varying \texttt{max\_features} from 1 to 1.0 steadily strengthens individual trees (single-tree Macro-F1 rises from 0.563 to 0.592) and lifts forest Macro-F1 from 0.670 to a plateau around 0.703--0.707 (\texttt{sqrt} to 1.0). Interestingly, mean pairwise tree correlation deviates slightly from textbook monotonic growth---peaking at 0.379 for \texttt{max\_features} $= 2$ before dipping to 0.322 at 0.5 and 0.333 at 1.0---likely because sampling only 1--2 sparse one-hot columns frequently yields uninformative splits that push trees toward similar majority-class predictions.
 
 \fig{q4_boosting_staged}{Boosting: staged training/validation Macro-F1 and CV grid vs.\ number of estimators.}
 \inputtable{q4_AdaBoost_cv_top}
 \inputtable{q4_GradientBoosting_cv_top}
 
-% TODO(student): interpret
-\studenttodo{Q4d: learning rate vs.\ number of estimators; sequential error correction (boosting reduces bias)
-vs.\ independent bagged learners (variance reduction); effect of balanced sample weights. Note that the
-CV-optimal n\_estimators lies at the upper end of the grid (see the CV tables) -- discuss what this implies.}
+Unlike bagging, which averages independent trees to reduce variance, boosting fits shallow weak learners sequentially to correct preceding errors and primarily reduce bias. A clear inverse relationship emerges between \texttt{learning\_rate} and ensemble size: smaller shrinkage steps (\texttt{lr} $= 0.05$) require more boosting stages to lower error, whereas larger steps (\texttt{lr} $= 0.2$) converge faster and begin widening the train--validation gap earlier. In our 5-fold CV grid, both AdaBoost (\texttt{lr} $= 1.0$) and GradientBoosting (\texttt{lr} $= 0.1$) hit the upper boundary of the search grid at \texttt{n\_estimators} $= 400$; this boundary optimum is a notable limitation, as additional iterations or early stopping could further improve performance, particularly at smaller learning rates. Under balanced class weights, both boosting models achieve high minority-class recall (0.664 for AdaBoost, 0.652 for GradientBoosting) yet trail Random Forest in Macro-F1 (0.619 and 0.674 vs.\ 0.706) because elevated false-positive rates at the fixed 0.5 threshold penalize majority-class precision and $F_1$. Finally, AdaBoost substantially underperforms GradientBoosting (and exhibits erratic staged validation curves) because exponential loss aggressively upweights noisy or borderline clients, whereas GradientBoosting's log-loss objective with depth-3 trees yields far smoother and better-generalizing updates.
 
 \inputtable{q4_comparison}
 \inputtable{q4_importance_rank_corr}
@@ -101,8 +79,4 @@ CV-optimal n\_estimators lies at the upper end of the grid (see the CV tables) -
 \inputtable{q4_importance_control}
 \fig{q4_importance_control}{Importance control experiment with added noise and near-duplicate features.}
 
-% TODO(student): interpret
-\studenttodo{Q4e: compare Macro-F1, accuracy, training and inference time; agreement between built-in and
-permutation importance; at least two cases where importance misleads (impurity bias towards
-high-cardinality/continuous features, importance split between correlated/duplicate features, importance
-computed on training data, importance $\neq$ causality).}
+Comparing tree-based models on validation reveals a clear accuracy--efficiency trade-off: Random Forest delivers the highest Macro-F1 (0.706) and accuracy (0.880) in 3.9\,s of training time (0.09\,s inference), whereas GradientBoosting achieves the strongest ranking metrics (ROC-AUC 0.805, PR-AUC 0.461) but requires 35.6\,s to fit ($\approx 9\times$ slower) and scores 0.674 in Macro-F1 at the fixed 0.5 threshold. Decision Tree is extremely fast (0.4\,s fit, 0.02\,s inference) with a strong validation Macro-F1 (0.696), while AdaBoost is both the slowest at inference (0.68\,s) and weakest in Macro-F1 (0.619). Agreement between built-in impurity importance and validation permutation importance is high for DT (Spearman $\rho = 0.89$), GB (0.81), and AdaBoost (0.81), but drops sharply for RF ($\rho = 0.61$) because deep unpruned RF trees heavily favor high-cardinality and continuous features (\texttt{balance}, \texttt{age}, \texttt{day\_of\_week}) during training splits. Our negative-control experiment exposes two classic importance pitfalls: (1) \emph{cardinality bias}, where pure random noise columns (\texttt{NOISE\_id\_highcard} and \texttt{NOISE\_continuous}) rank 2nd (0.098) and 4th (0.097) in RF built-in importance despite having near-zero validation permutation impact ($\approx 0.003$ and $-0.001$); and (2) \emph{collinearity dilution}, where adding \texttt{age\_near\_duplicate} splits importance across the pair and drives true \texttt{age}'s permutation score down to 0.001. Consequently, validation permutation importance---which ranks \texttt{month} first (0.085 drop vs.\ 5th in built-in)---is far more trustworthy for generalization, though feature importance reflects predictive association rather than causal impact.

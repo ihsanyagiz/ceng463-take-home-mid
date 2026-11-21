@@ -1,13 +1,7 @@
 \section{Introduction, research questions, and datasets}
 \label{sec:intro}
 
-% TODO(student): interpret / motivate the study in your own words
-\studenttodo{Motivation of the study and the research questions in your own words, e.g.:
-(i) how much does a leakage-safe protocol change reported performance (Q1);
-(ii) how do linear, probabilistic and instance-based classifiers compare on an imbalanced, mixed-type task (Q2);
-(iii) how do complexity and regularisation affect regression generalisation (Q3);
-(iv) what do tree ensembles add over single trees and the Q2 models (Q4);
-(v) which model is defensible when performance, robustness, uncertainty and cost are all considered (Q5).}
+Rather than pursuing a single highest leaderboard score, this study demonstrates how to construct a reproducible, leakage-free, and methodologically rigorous machine learning workflow from raw data auditing to locked final testing. We address five research questions: (RQ1) How do data anomalies, partitioning choices, and deliberate data-leakage procedures distort evaluation validity? (RQ2) How do baseline classifiers (Logistic Regression, Naive Bayes, and $k$NN) respond to feature representations, hyperparameter choices, class-imbalance interventions, and metric selection on an imbalanced dataset? (RQ3) How do linear, regularized (Ridge and Lasso), and nonlinear regression models behave with respect to the bias--variance trade-off, multicollinearity, and target censoring? (RQ4) How do single decision trees, Random Forests, and boosting ensembles compare in accuracy, complexity control, runtime, and feature-importance reliability? (RQ5) How do cross-validation stability, corruption robustness, statistical uncertainty, and multi-criteria decision analysis (MCDA) guide final model selection and generalize to a locked test set? The UCI Bank Marketing dataset (45,211 observations, 16 mixed-type features, 11.7\% positive class) is an ideal testbed for these questions because its severe class imbalance, structured missingness, sentinel coding, skewed numeric scales, and post-outcome leakage feature (\texttt{duration}) expose the exact methodological pitfalls encountered in real-world tabular modeling.
 
 \paragraph{Classification dataset (Q1, Q2, Q4, Q5).}
 UCI Bank Marketing (\texttt{bank-full}, UCI id 222, \cite{moro2014bank}), loaded with \texttt{ucimlrepo} and cached in

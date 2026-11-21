@@ -9,7 +9,6 @@
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{xcolor}
-\usepackage[colorinlistoftodos,textsize=small]{todonotes}
 \usepackage[hidelinks]{hyperref}
 
 % ---------------------------------------------------------------------------
@@ -20,12 +19,11 @@
   \begin{figure}[H]\centering
   \IfFileExists{figures/#2.pdf}{\includegraphics[width=#1\linewidth]{figures/#2.pdf}}{\fbox{missing figure #2}}
   \caption{#3}\label{fig:#2}\end{figure}}
-\newcommand{\studenttodo}[1]{\todo[inline,color=orange!25]{\textbf{Student interpretation:} #1}}
 
 \IfFileExists{tables/q1_macros.tex}{\input{tables/q1_macros.tex}}{}
 \IfFileExists{tables/q3_macros.tex}{\input{tables/q3_macros.tex}}{}
 
-\newcommand{\StudentName}{İhsan Yağız Sakızlıoğlu}
+\newcommand{\StudentName}{\.{I}hsan Ya\u{g}{\i}z Sak{\i}zl{\i}o\u{g}lu}
 \newcommand{\StudentID}{300201071}
 \newcommand{\RepoURL}{\url{https://github.com/ihsanyagiz/ceng463-take-home-mid}}
 
@@ -35,7 +33,6 @@
 
 \begin{document}
 \maketitle
-\listoftodos[Interpretation placeholders to be written by the student]
 \tableofcontents
 \clearpage
 
