@@ -3,7 +3,7 @@
 \small
 \caption{Q1d leakage demonstration (LogReg C=1, class\_weight=balanced). INVALID rows are deliberately wrong.}
 \label{tab:q1_leakage_demo}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllllll}
 \toprule
 procedure & valid & cv\_macro\_f1 & cv\_macro\_f1\_std & cv\_roc\_auc & val\_macro\_f1 & val\_roc\_auc \\

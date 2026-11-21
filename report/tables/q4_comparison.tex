@@ -3,7 +3,7 @@
 \small
 \caption{Q4e tree/ensemble models vs. best Q2 model (validation; times on this machine)}
 \label{tab:q4_comparison}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllllllllll}
 \toprule
 model & cv\_macro\_f1 & cv\_std & val\_macro\_f1 & val\_accuracy & val\_roc\_auc & val\_pr\_auc & val\_recall\_yes & fit\_time\_s & predict\_time\_s & n\_jobs \\

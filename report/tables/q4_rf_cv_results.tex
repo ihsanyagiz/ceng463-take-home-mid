@@ -3,7 +3,7 @@
 \small
 \caption{Q4c Random Forest grid (100 trees, 5-fold CV)}
 \label{tab:q4_rf_cv_results}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{llllllll}
 \toprule
 class\_weight & max\_depth & max\_features & min\_samples\_leaf & mean\_test\_score & std\_test\_score & mean\_train\_score & rank\_test\_score \\

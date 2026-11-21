@@ -3,7 +3,7 @@
 \small
 \caption{Q5d multi-criteria table: raw values, min-max normalised scores (1 = best) and weighted score}
 \label{tab:q5_mcda}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{llllllllllllllllll}
 \toprule
 model & cv\_mean\_macro\_f1 & cv\_std\_macro\_f1 & macro\_f1\_max\_noise & auc\_gaussian\_noise & auc\_missing\_features & fit\_time\_s & predict\_ms\_per\_1000 & interpretability\_score & implementation\_simplicity & norm\_performance & norm\_stability & norm\_robustness & norm\_interpretability & norm\_train\_cost & norm\_inference\_cost & norm\_implementation & weighted\_score \\

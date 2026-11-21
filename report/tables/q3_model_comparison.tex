@@ -3,7 +3,7 @@
 \small
 \caption{Q3b/e regression results. MAE and RMSE in units of \$100,000; R2 unitless}
 \label{tab:q3_model_comparison}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllllllll}
 \toprule
 model & cv\_RMSE & train\_MAE & train\_RMSE & train\_R2 & val\_MAE & val\_RMSE & val\_R2 & fit\_time\_s \\

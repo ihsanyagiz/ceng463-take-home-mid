@@ -103,7 +103,7 @@ def save_table(df: pd.DataFrame, name, caption=None, float_fmt="%.4f", index=Fal
     cap = _latex_escape(caption or name)
     tex = ("\\begin{table}[htbp]\n\\centering\n\\small\n"
            f"\\caption{{{cap}}}\n\\label{{tab:{name}}}\n"
-           "\\resizebox{\\linewidth}{!}{%\n" + body + "\n}\n\\end{table}\n")
+           "\\resizebox{\\ifdim\\width>\\linewidth\\linewidth\\else\\width\\fi}{!}{%\n" + body + "\n}\n\\end{table}\n")
     (C.REPORT_TABLES / f"{name}.tex").write_text(tex, encoding="utf-8")
 
 

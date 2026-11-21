@@ -3,7 +3,7 @@
 \small
 \caption{Q3a California Housing audit (statistics on training rows)}
 \label{tab:q3_audit}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllllllll}
 \toprule
 feature & n\_missing\_all\_rows & mean & std & min & median & max & skew & n\_iqr\_outliers\_train \\

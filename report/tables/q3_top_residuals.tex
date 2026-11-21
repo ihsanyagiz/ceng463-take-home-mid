@@ -3,7 +3,7 @@
 \small
 \caption{Q3e ten largest validation residuals of RandomForest (\$100k)}
 \label{tab:q3_top_residuals}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllllllllllll}
 \toprule
 row\_id & MedInc & HouseAge & AveRooms & AveBedrms & Population & AveOccup & Latitude & Longitude & actual & predicted & residual & ridge\_pred \\

@@ -3,7 +3,7 @@
 \small
 \caption{Q2e most confident validation errors of NaiveBayes (10 FN + 10 FP)}
 \label{tab:q2_errors}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{llllllllllll}
 \toprule
 val\_row\_id & age & job & balance & contact & month & campaign & pdays & poutcome & y\_true & p\_yes & error\_type \\

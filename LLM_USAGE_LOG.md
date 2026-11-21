@@ -30,6 +30,7 @@ experiments Q1a-Q5e, a LaTeX report with interpretation placeholders, a README, 
 | 13 | Final test (Q5e) | On the student's instruction, ran `src/q5_final_test.py` once (not forced; config hash matched the frozen `selection_rule.json`) and exported the generated tables/figures. |
 | 14 | Report text insertion | Replaced each `\studenttodo{...}` block with the student's own paragraph verbatim (from the student's answer file); removed the `\listoftodos` and `todonotes` scaffolding; filled in name and ID. No content was rewritten. |
 | 15 | PDF build | No local LaTeX: downloaded the portable Tectonic 0.17.0 release (outside the repo) and compiled `report/main.pdf` (BibTeX included). Fixed overfull lines only (layout): `\emergencystretch`, `\footnotesize` for the two verbatim blocks, breakable `\nolinkurl` for long paths/names. Log checked for undefined references/citations and missing figures/tables (none). |
+| 15b | Table scaling (layout only) | On the student's instruction, `save_table` in `src/utils.py` and the 62 generated `report/tables/*.tex` now shrink only tables wider than the text (`\resizebox{\ifdim\width>\linewidth ...}`) instead of scaling narrow tables up to full width. No experiment re-run, no number or CSV changed; PDF recompiled. |
 | 16 | Submission archive | Built `CENG463_Midterm_<StudentID>.zip` with `make_submission.py` and checked its contents (`.venv`, `data/raw` excluded). |
 
 ## Design choices made in code (the student should review and justify them)

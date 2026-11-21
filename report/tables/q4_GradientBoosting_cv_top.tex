@@ -3,7 +3,7 @@
 \small
 \caption{Q4d GradientBoosting: top-15 configurations (staged 5-fold CV Macro-F1)}
 \label{tab:q4_GradientBoosting_cv_top}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllll}
 \toprule
 learning\_rate & balanced\_weights & n\_estimators & mean\_test\_score & std\_test\_score \\

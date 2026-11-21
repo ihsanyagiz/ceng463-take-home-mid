@@ -3,7 +3,7 @@
 \small
 \caption{Q2b CV grid for LogReg (5-fold stratified, Macro-F1)}
 \label{tab:q2_grid_LogReg}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllllll}
 \toprule
 model & C & class\_weight & mean\_test\_score & std\_test\_score & mean\_fit\_time & rank\_test\_score \\

@@ -3,7 +3,7 @@
 \small
 \caption{Q5e single final test evaluation of all frozen candidates (refit on trainval); 95\% CI = bootstrap over test examples}
 \label{tab:q5_test_results}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{llllllll}
 \toprule
 model & selected & test\_accuracy & test\_macro\_f1 & test\_macro\_f1\_ci95\_lo & test\_macro\_f1\_ci95\_hi & test\_roc\_auc & test\_pr\_auc \\

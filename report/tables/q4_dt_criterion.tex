@@ -3,7 +3,7 @@
 \small
 \caption{Q4b best CV configuration per split criterion (5-fold, Macro-F1)}
 \label{tab:q4_dt_criterion}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllllllll}
 \toprule
 ccp\_alpha & class\_weight & criterion & max\_depth & min\_samples\_leaf & mean\_test\_score & std\_test\_score & mean\_train\_score & rank\_test\_score \\

@@ -3,7 +3,7 @@
 \small
 \caption{Q1a dataset audit (Bank Marketing, all rows)}
 \label{tab:q1_audit}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{llllllllll}
 \toprule
 feature & dtype & n\_missing\_unknown & pct\_missing\_unknown & n\_unique & min & median & max & n\_iqr\_outliers & note \\

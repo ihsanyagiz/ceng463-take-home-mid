@@ -3,7 +3,7 @@
 \small
 \caption{Q2c validation metrics (positive class = yes)}
 \label{tab:q2_summary}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllllllllllllll}
 \toprule
 model & cv\_macro\_f1 & cv\_macro\_f1\_std & val\_accuracy & val\_macro\_f1 & val\_precision\_no & val\_recall\_no & val\_f1\_no & val\_precision\_yes & val\_recall\_yes & val\_f1\_yes & val\_roc\_auc & val\_pr\_auc & fit\_time\_s & predict\_time\_s \\

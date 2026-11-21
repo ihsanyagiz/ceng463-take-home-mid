@@ -3,7 +3,7 @@
 \small
 \caption{Q4d staged train/validation Macro-F1 (fit on train)}
 \label{tab:q4_boosting_staged_val}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllll}
 \toprule
 model & learning\_rate & n\_estimators & train\_macro\_f1 & val\_macro\_f1 \\

@@ -3,7 +3,7 @@
 \small
 \caption{Q2d controlled class-imbalance interventions (only the imbalance handling differs)}
 \label{tab:q2_imbalance}
-\resizebox{\linewidth}{!}{%
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
 \begin{tabular}{lllllllllllll}
 \toprule
 variant & cv\_macro\_f1 & cv\_std & val\_accuracy & val\_macro\_f1 & val\_recall\_no & val\_recall\_yes & val\_precision\_yes & val\_roc\_auc & FP & FN & error\_rate\_no & error\_rate\_yes \\
