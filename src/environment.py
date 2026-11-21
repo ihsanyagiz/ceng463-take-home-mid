@@ -22,7 +22,7 @@ def main():
         f"SEED: {C.SEED} | CV folds: {C.CV_FOLDS} | n_jobs: {C.N_JOBS}",
     ]
     (C.RESULTS / "environment.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    tex = "\\begin{verbatim}\n" + "\n".join(lines) + "\n\\end{verbatim}\n"
+    tex = "{\\footnotesize\n\\begin{verbatim}\n" + "\n".join(lines) + "\n\\end{verbatim}\n}\n"
     (C.REPORT_TABLES / "environment.tex").write_text(tex, encoding="utf-8")
     print("\n".join(lines))
 

@@ -4,6 +4,7 @@
 \paragraph{Repository.} \RepoURL
 
 \paragraph{Setup and commands} (Windows PowerShell; on Linux/macOS use \texttt{.venv/bin/python}):
+{\footnotesize
 \begin{verbatim}
 python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements.txt
@@ -17,10 +18,11 @@ python -m venv .venv
 .venv\Scripts\python -m src.q5_final_test      # guarded: runs once (use --force to repeat; logged)
 cd report; latexmk -pdf main.tex
 \end{verbatim}
+}
 
-\paragraph{Configuration.} All seeds, paths, grids and weights: \texttt{src/config.py}. Split indices:
-\texttt{data/splits/}. Frozen configurations: \texttt{results/models/final\_*.json} and
-\texttt{results/models/selection\_rule.json}. Runtime per step: \texttt{results/logs/runtime.json}.
+\paragraph{Configuration.} All seeds, paths, grids and weights: \nolinkurl{src/config.py}. Split indices:
+\nolinkurl{data/splits/}. Frozen configurations: \nolinkurl{results/models/final_*.json} and
+\nolinkurl{results/models/selection_rule.json}. Runtime per step: \nolinkurl{results/logs/runtime.json}.
 
 \paragraph{Software.} scikit-learn \cite{pedregosa2011scikit}, imbalanced-learn \cite{lemaitre2017imbalanced},
 pandas, NumPy, Matplotlib, seaborn; SMOTE \cite{chawla2002smote}; Random Forests \cite{breiman2001random};
