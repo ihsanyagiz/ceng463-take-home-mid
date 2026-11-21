@@ -58,6 +58,6 @@ latexmk -pdf main.tex
 
 ## Submission archive
 ```powershell
-.venv\Scripts\python make_submission.py --student-id <StudentID>
+.venv\Scripts\python make_submission.py --student-id 300201071
 ```
-This builds `CENG463_Midterm_<StudentID>.zip` without `.venv` or raw data.
+This builds `CENG463_Midterm_300201071.zip` without `.venv` or raw data.
