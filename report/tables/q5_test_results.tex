@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q5e single final test evaluation of all frozen candidates (refit on trainval); 95\% CI = bootstrap over test examples}
+\label{tab:q5_test_results}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllllll}
+\toprule
+model & selected & test\_accuracy & test\_macro\_f1 & test\_macro\_f1\_ci95\_lo & test\_macro\_f1\_ci95\_hi & test\_roc\_auc & test\_pr\_auc \\
+\midrule
+LogReg & False & 0.7535 & 0.6084 & 0.5947 & 0.6216 & 0.7686 & 0.4143 \\
+NaiveBayes & True & 0.8571 & 0.6673 & 0.6509 & 0.6836 & 0.7630 & 0.3909 \\
+kNN & False & 0.8862 & 0.6378 & 0.6192 & 0.6560 & 0.6862 & 0.2729 \\
+DecisionTree & False & 0.8610 & 0.6990 & 0.6833 & 0.7139 & 0.7683 & 0.4039 \\
+RandomForest & False & 0.8800 & 0.7042 & 0.6873 & 0.7204 & 0.7828 & 0.4565 \\
+AdaBoost & False & 0.7591 & 0.6162 & 0.6026 & 0.6295 & 0.7743 & 0.4214 \\
+GradientBoosting & False & 0.8166 & 0.6657 & 0.6509 & 0.6800 & 0.7896 & 0.4534 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

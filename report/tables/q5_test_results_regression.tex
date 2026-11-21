@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q3 frozen regression models on the regression test set (refit on trainval; MAE/RMSE in \$100k)}
+\label{tab:q5_test_results_regression}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+model & test\_MAE & test\_RMSE & test\_R2 \\
+\midrule
+Dummy & 0.9205 & 1.1611 & -0.0002 \\
+OLS & 0.5256 & 0.7308 & 0.6038 \\
+Ridge & 0.5256 & 0.7308 & 0.6038 \\
+Lasso & 0.5256 & 0.7301 & 0.6046 \\
+DecisionTree & 0.3981 & 0.5900 & 0.7418 \\
+RandomForest & 0.3207 & 0.4845 & 0.8258 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
