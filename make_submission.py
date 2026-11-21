@@ -26,7 +26,11 @@ def main():
             p = ROOT / item
             files = [p] if p.is_file() else (sorted(p.rglob("*")) if p.exists() else [])
             for f in files:
-                if f.is_dir() or EXCLUDE_PARTS & set(f.parts) or f.suffix in EXCLUDE_SUFFIX:
+                rel = f.relative_to(ROOT)
+                if f.is_dir() or EXCLUDE_PARTS & set(f.parts) or f.suffix in EXCLUDE_SUFFIX - {".log"}:
+                    continue
+                # .log is a LaTeX build artefact only under report/; results/logs/*.log are kept
+                if f.suffix == ".log" and rel.parts[0] == "report":
                     continue
                 z.write(f, f.relative_to(ROOT))
                 n += 1
