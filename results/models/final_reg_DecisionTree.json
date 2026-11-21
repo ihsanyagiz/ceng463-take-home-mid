@@ -1,0 +1,8 @@
+{
+  "name": "DecisionTree",
+  "params": {
+    "max_depth": null,
+    "min_samples_leaf": 20
+  },
+  "source": "Q3"
+}

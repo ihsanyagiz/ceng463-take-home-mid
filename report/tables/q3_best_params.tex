@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q3b selected hyper-parameters (5-fold CV RMSE on train)}
+\label{tab:q3_best_params}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+model & params \\
+\midrule
+Dummy(mean) & \{\} \\
+OLS & \{\} \\
+Ridge & \{'alpha': 0.0001\} \\
+Lasso & \{'alpha': 0.0006812920690579609\} \\
+DecisionTree & \{'max\_depth': None, 'min\_samples\_leaf': 20\} \\
+RandomForest & \{'n\_estimators': 200, 'max\_depth': None, 'max\_features': 0.33, 'min\_samples\_leaf': 1\} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

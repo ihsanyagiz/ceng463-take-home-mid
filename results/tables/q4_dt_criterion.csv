@@ -1,0 +1,3 @@
+ccp_alpha,class_weight,criterion,max_depth,min_samples_leaf,mean_test_score,std_test_score,mean_train_score,rank_test_score
+0.001,balanced,gini,,20,0.6708094549572524,0.024822440300222976,0.6759005526068779,1
+0.001,balanced,entropy,12,20,0.655973246440613,0.023223590168853676,0.6676390311412765,12

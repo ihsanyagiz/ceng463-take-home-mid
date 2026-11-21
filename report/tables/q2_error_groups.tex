@@ -1,0 +1,43 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q2e validation error rates of NaiveBayes grouped by input characteristics}
+\label{tab:q2_error_groups}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllll}
+\toprule
+feature & level & n & pos\_rate & n\_FN & n\_FP & error\_rate \\
+\midrule
+poutcome & failure & 744 & 0.138 & 54 & 138 & 0.258 \\
+poutcome & missing & 5531 & 0.087 & 364 & 293 & 0.119 \\
+poutcome & other & 268 & 0.205 & 22 & 52 & 0.276 \\
+poutcome & success & 239 & 0.653 & 8 & 71 & 0.331 \\
+contact & cellular & 4406 & 0.152 & 346 & 507 & 0.194 \\
+contact & missing & 1944 & 0.040 & 77 & 4 & 0.042 \\
+contact & telephone & 432 & 0.113 & 25 & 43 & 0.157 \\
+month & apr & 427 & 0.218 & 49 & 60 & 0.255 \\
+month & aug & 962 & 0.111 & 63 & 96 & 0.165 \\
+month & dec & 29 & 0.517 & 1 & 12 & 0.448 \\
+month & feb & 399 & 0.145 & 29 & 98 & 0.318 \\
+month & jan & 194 & 0.077 & 9 & 40 & 0.253 \\
+month & jul & 1019 & 0.085 & 64 & 29 & 0.091 \\
+month & jun & 817 & 0.092 & 52 & 25 & 0.094 \\
+month & mar & 65 & 0.569 & 3 & 24 & 0.415 \\
+month & may & 2047 & 0.074 & 127 & 41 & 0.082 \\
+month & nov & 616 & 0.093 & 41 & 45 & 0.140 \\
+month & oct & 109 & 0.477 & 6 & 40 & 0.422 \\
+month & sep & 98 & 0.469 & 4 & 44 & 0.490 \\
+p\_bin & (-0.001, 0.1] & 4167 & 0.054 & 223 & 0 & 0.054 \\
+p\_bin & (0.1, 0.3] & 1205 & 0.112 & 135 & 0 & 0.112 \\
+p\_bin & (0.3, 0.5] & 510 & 0.176 & 90 & 0 & 0.176 \\
+p\_bin & (0.5, 0.7] & 363 & 0.220 & 0 & 283 & 0.780 \\
+p\_bin & (0.7, 0.9] & 265 & 0.377 & 0 & 165 & 0.623 \\
+p\_bin & (0.9, 1.0] & 272 & 0.610 & 0 & 106 & 0.390 \\
+housing & no & 3059 & 0.166 & 206 & 470 & 0.221 \\
+housing & yes & 3723 & 0.077 & 242 & 84 & 0.088 \\
+loan & no & 5689 & 0.126 & 380 & 539 & 0.162 \\
+loan & yes & 1093 & 0.070 & 68 & 15 & 0.076 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

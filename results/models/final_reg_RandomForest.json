@@ -1,0 +1,10 @@
+{
+  "name": "RandomForest",
+  "params": {
+    "n_estimators": 200,
+    "max_depth": null,
+    "max_features": 0.33,
+    "min_samples_leaf": 1
+  },
+  "source": "Q3"
+}

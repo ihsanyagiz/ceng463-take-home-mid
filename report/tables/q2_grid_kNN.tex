@@ -1,0 +1,42 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q2b CV grid for kNN (5-fold stratified, Macro-F1)}
+\label{tab:q2_grid_kNN}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllllll}
+\toprule
+model & n\_neighbors & p & weights & mean\_test\_score & std\_test\_score & mean\_fit\_time & rank\_test\_score \\
+\midrule
+kNN & 3 & 1 & uniform & 0.6246 & 0.0077 & 0.2035 & 1 \\
+kNN & 3 & 1 & distance & 0.6228 & 0.0100 & 0.1907 & 2 \\
+kNN & 5 & 1 & uniform & 0.6205 & 0.0087 & 0.2100 & 3 \\
+kNN & 5 & 1 & distance & 0.6201 & 0.0111 & 0.1784 & 4 \\
+kNN & 9 & 1 & distance & 0.6167 & 0.0103 & 0.1759 & 5 \\
+kNN & 5 & 2 & distance & 0.6159 & 0.0070 & 0.1910 & 6 \\
+kNN & 5 & 2 & uniform & 0.6154 & 0.0045 & 0.1864 & 7 \\
+kNN & 3 & 2 & uniform & 0.6146 & 0.0096 & 0.1962 & 8 \\
+kNN & 9 & 1 & uniform & 0.6143 & 0.0072 & 0.1892 & 9 \\
+kNN & 3 & 2 & distance & 0.6127 & 0.0099 & 0.1982 & 10 \\
+kNN & 15 & 1 & distance & 0.6099 & 0.0079 & 0.1809 & 11 \\
+kNN & 9 & 2 & distance & 0.6072 & 0.0039 & 0.1957 & 12 \\
+kNN & 15 & 1 & uniform & 0.6056 & 0.0079 & 0.1847 & 13 \\
+kNN & 9 & 2 & uniform & 0.6046 & 0.0037 & 0.1871 & 14 \\
+kNN & 1 & 1 & uniform & 0.6011 & 0.0070 & 0.2683 & 15 \\
+kNN & 1 & 1 & distance & 0.6011 & 0.0070 & 0.2500 & 15 \\
+kNN & 15 & 2 & distance & 0.5997 & 0.0024 & 0.1882 & 17 \\
+kNN & 31 & 1 & distance & 0.5977 & 0.0059 & 0.1770 & 18 \\
+kNN & 1 & 2 & distance & 0.5975 & 0.0036 & 0.2290 & 19 \\
+kNN & 1 & 2 & uniform & 0.5975 & 0.0036 & 0.2899 & 19 \\
+kNN & 15 & 2 & uniform & 0.5968 & 0.0037 & 0.1868 & 21 \\
+kNN & 31 & 1 & uniform & 0.5914 & 0.0080 & 0.1820 & 22 \\
+kNN & 51 & 1 & distance & 0.5897 & 0.0066 & 0.1993 & 23 \\
+kNN & 51 & 1 & uniform & 0.5859 & 0.0074 & 0.2372 & 24 \\
+kNN & 31 & 2 & distance & 0.5855 & 0.0060 & 0.2393 & 25 \\
+kNN & 31 & 2 & uniform & 0.5813 & 0.0072 & 0.1973 & 26 \\
+kNN & 51 & 2 & distance & 0.5734 & 0.0082 & 0.1843 & 27 \\
+kNN & 51 & 2 & uniform & 0.5714 & 0.0092 & 0.1964 & 28 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

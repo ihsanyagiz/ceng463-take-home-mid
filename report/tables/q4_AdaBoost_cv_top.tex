@@ -1,0 +1,29 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4d AdaBoost: top-15 configurations (staged 5-fold CV Macro-F1)}
+\label{tab:q4_AdaBoost_cv_top}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+learning\_rate & balanced\_weights & n\_estimators & mean\_test\_score & std\_test\_score \\
+\midrule
+1.0000 & True & 400 & 0.6193 & 0.0076 \\
+1.0000 & True & 300 & 0.6172 & 0.0091 \\
+0.5000 & True & 400 & 0.6157 & 0.0136 \\
+1.0000 & True & 200 & 0.6151 & 0.0082 \\
+0.0500 & False & 10 & 0.6118 & 0.0057 \\
+0.0500 & True & 50 & 0.6118 & 0.0057 \\
+0.0500 & True & 25 & 0.6118 & 0.0057 \\
+0.0500 & True & 150 & 0.6118 & 0.0057 \\
+0.1000 & True & 10 & 0.6118 & 0.0057 \\
+0.0500 & True & 10 & 0.6118 & 0.0057 \\
+0.1000 & True & 50 & 0.6118 & 0.0057 \\
+1.0000 & False & 10 & 0.6118 & 0.0057 \\
+0.0500 & True & 100 & 0.6118 & 0.0057 \\
+0.1000 & True & 25 & 0.6118 & 0.0057 \\
+0.5000 & True & 300 & 0.6106 & 0.0122 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

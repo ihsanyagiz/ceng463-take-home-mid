@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q2c per-class precision / recall / F1 (validation)}
+\label{tab:q2_per_class}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllll}
+\toprule
+model & class & precision & recall & f1 & support \\
+\midrule
+LogReg & no & 0.9402 & 0.7742 & 0.8492 & 5988 \\
+LogReg & yes & 0.2696 & 0.6285 & 0.3773 & 794 \\
+NaiveBayes & no & 0.9238 & 0.9075 & 0.9156 & 5988 \\
+NaiveBayes & yes & 0.3844 & 0.4358 & 0.4085 & 794 \\
+kNN & no & 0.9061 & 0.9641 & 0.9342 & 5988 \\
+kNN & yes & 0.4769 & 0.2469 & 0.3253 & 794 \\
+Dummy & no & 0.8829 & 1.0000 & 0.9378 & 5988 \\
+Dummy & yes & 0.0000 & 0.0000 & 0.0000 & 794 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

@@ -1,0 +1,8 @@
+model,win_freq_uniform_alpha1,win_freq_centered_alpha20w
+NaiveBayes,0.6482,0.6328
+RandomForest,0.0368,0.3276
+DecisionTree,0.1028,0.0396
+GradientBoosting,0.0,0.0
+kNN,0.0,0.0
+AdaBoost,0.0,0.0
+LogReg,0.2122,0.0

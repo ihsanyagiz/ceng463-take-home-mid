@@ -1,0 +1,27 @@
+\section{References and reproducibility appendix}
+\label{sec:repro}
+
+\paragraph{Repository.} \RepoURL
+
+\paragraph{Setup and commands} (Windows PowerShell; on Linux/macOS use \texttt{.venv/bin/python}):
+\begin{verbatim}
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.txt
+.venv\Scripts\python run_all.py --clean        # full pipeline, incl. the single test run
+# individual steps
+.venv\Scripts\python -m src.q1_data_leakage
+.venv\Scripts\python -m src.q2_classifiers
+.venv\Scripts\python -m src.q3_regression
+.venv\Scripts\python -m src.q4_trees_ensembles
+.venv\Scripts\python -m src.q5_robustness_selection
+.venv\Scripts\python -m src.q5_final_test      # guarded: runs once (use --force to repeat; logged)
+cd report; latexmk -pdf main.tex
+\end{verbatim}
+
+\paragraph{Configuration.} All seeds, paths, grids and weights: \texttt{src/config.py}. Split indices:
+\texttt{data/splits/}. Frozen configurations: \texttt{results/models/final\_*.json} and
+\texttt{results/models/selection\_rule.json}. Runtime per step: \texttt{results/logs/runtime.json}.
+
+\paragraph{Software.} scikit-learn \cite{pedregosa2011scikit}, imbalanced-learn \cite{lemaitre2017imbalanced},
+pandas, NumPy, Matplotlib, seaborn; SMOTE \cite{chawla2002smote}; Random Forests \cite{breiman2001random};
+gradient boosting \cite{friedman2001greedy}; AdaBoost \cite{freund1997decision}.

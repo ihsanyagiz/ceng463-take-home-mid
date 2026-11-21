@@ -1,0 +1,28 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q5b Macro-F1 retention at maximum severity (max / clean); informative only, not used as MCDA criterion}
+\label{tab:q5_robustness_retention}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllll}
+\toprule
+model & scenario & clean & max\_severity & retention & mean\_over\_severities \\
+\midrule
+LogReg & gaussian\_noise & 0.6132 & 0.6002 & 0.9788 & 0.6106 \\
+LogReg & missing\_features & 0.6132 & 0.5940 & 0.9686 & 0.6043 \\
+NaiveBayes & gaussian\_noise & 0.6620 & 0.6526 & 0.9858 & 0.6570 \\
+NaiveBayes & missing\_features & 0.6620 & 0.5857 & 0.8847 & 0.6359 \\
+kNN & gaussian\_noise & 0.6298 & 0.6196 & 0.9838 & 0.6270 \\
+kNN & missing\_features & 0.6298 & 0.5630 & 0.8940 & 0.6020 \\
+DecisionTree & gaussian\_noise & 0.6958 & 0.6223 & 0.8944 & 0.6646 \\
+DecisionTree & missing\_features & 0.6958 & 0.5846 & 0.8402 & 0.6410 \\
+RandomForest & gaussian\_noise & 0.7064 & 0.6368 & 0.9014 & 0.6773 \\
+RandomForest & missing\_features & 0.7064 & 0.6212 & 0.8793 & 0.6679 \\
+AdaBoost & gaussian\_noise & 0.6188 & 0.5499 & 0.8887 & 0.5927 \\
+AdaBoost & missing\_features & 0.6188 & 0.6042 & 0.9763 & 0.6127 \\
+GradientBoosting & gaussian\_noise & 0.6736 & 0.5732 & 0.8509 & 0.6253 \\
+GradientBoosting & missing\_features & 0.6736 & 0.6158 & 0.9142 & 0.6494 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

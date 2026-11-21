@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4e RandomForest: built-in (impurity) vs. permutation importance on validation}
+\label{tab:q4_importance_RandomForest}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllll}
+\toprule
+feature & builtin\_impurity & perm\_mean\_drop\_macro\_f1 & perm\_std & builtin\_rank & perm\_rank \\
+\midrule
+month & 0.1092 & 0.0921 & 0.0055 & 4.0000 & 1.0000 \\
+contact & 0.0756 & 0.0721 & 0.0047 & 6.0000 & 2.0000 \\
+poutcome & 0.0933 & 0.0362 & 0.0026 & 5.0000 & 3.0000 \\
+day\_of\_week & 0.1187 & 0.0346 & 0.0028 & 3.0000 & 4.0000 \\
+housing & 0.0367 & 0.0184 & 0.0027 & 10.0000 & 5.0000 \\
+pdays & 0.0416 & 0.0125 & 0.0017 & 9.0000 & 6.0000 \\
+age & 0.1289 & 0.0087 & 0.0019 & 2.0000 & 7.0000 \\
+campaign & 0.0569 & 0.0065 & 0.0017 & 8.0000 & 8.0000 \\
+balance & 0.1777 & 0.0038 & 0.0040 & 1.0000 & 9.0000 \\
+marital & 0.0297 & 0.0035 & 0.0011 & 12.0000 & 10.0000 \\
+previous & 0.0137 & 0.0011 & 0.0006 & 14.0000 & 11.0000 \\
+loan & 0.0173 & 0.0003 & 0.0027 & 13.0000 & 12.0000 \\
+default & 0.0012 & 0.0001 & 0.0002 & 16.0000 & 13.0000 \\
+education & 0.0360 & -0.0002 & 0.0014 & 11.0000 & 14.0000 \\
+prev\_contacted & 0.0031 & -0.0008 & 0.0005 & 15.0000 & 15.0000 \\
+job & 0.0603 & -0.0024 & 0.0022 & 7.0000 & 16.0000 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

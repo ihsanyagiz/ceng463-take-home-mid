@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q3d sparsity and coefficient norms}
+\label{tab:q3_sparsity}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+model & n\_zero\_coefs & L1\_norm & L2\_norm \\
+\midrule
+OLS & 0 & 3.4244 & 1.5819 \\
+Ridge(best) & 0 & 3.4244 & 1.5819 \\
+Lasso(best) & 0 & 3.3857 & 1.5677 \\
+Lasso(alpha=0.05) & 4 & 1.3635 & 0.8270 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

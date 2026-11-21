@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q5b robustness criteria: validation Macro-F1 at the highest noise severity (sigma=1.0) and normalised AUC of the degradation curves}
+\label{tab:q5_robustness_criteria}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+model & macro\_f1\_max\_noise & auc\_gaussian\_noise & auc\_missing\_features \\
+\midrule
+LogReg & 0.6002 & 0.6098 & 0.6029 \\
+NaiveBayes & 0.6526 & 0.6559 & 0.6330 \\
+kNN & 0.6196 & 0.6260 & 0.5981 \\
+DecisionTree & 0.6223 & 0.6537 & 0.6323 \\
+RandomForest & 0.6368 & 0.6670 & 0.6624 \\
+AdaBoost & 0.5499 & 0.5836 & 0.6120 \\
+GradientBoosting & 0.5732 & 0.6094 & 0.6463 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

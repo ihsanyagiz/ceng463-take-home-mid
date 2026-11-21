@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q1b absolute class-proportion deviation (percentage points) over 100 seeds; full-data positive rate = 0.1170}
+\label{tab:q1_split_comparison}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllllll}
+\toprule
+setting & method & partition & n & mean\_abs\_dev\_pp & max\_abs\_dev\_pp & min\_n\_pos & frac\_seeds\_lt3\_pos \\
+\midrule
+full & random & test & 6782 & 0.3045 & 1.0559 & 732 & 0.0000 \\
+full & random & train & 31647 & 0.0789 & 0.2205 & 3643 & 0.0000 \\
+full & random & val & 6782 & 0.2902 & 0.8610 & 735 & 0.0000 \\
+full & stratified & test & 6782 & 0.0075 & 0.0090 & 793 & 0.0000 \\
+full & stratified & train & 31647 & 0.0007 & 0.0007 & 3702 & 0.0000 \\
+full & stratified & val & 6782 & 0.0072 & 0.0090 & 793 & 0.0000 \\
+small\_n200 & random & test & 30 & 4.0567 & 16.1667 & 0 & 0.3500 \\
+small\_n200 & random & train & 140 & 1.2371 & 4.0714 & 9 & 0.0000 \\
+small\_n200 & random & val & 30 & 4.3267 & 16.1667 & 0 & 0.4400 \\
+small\_n200 & stratified & test & 30 & 0.5000 & 0.5000 & 3 & 0.0000 \\
+small\_n200 & stratified & train & 140 & 0.2143 & 0.2143 & 15 & 0.0000 \\
+small\_n200 & stratified & val & 30 & 0.5000 & 0.5000 & 3 & 0.0000 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

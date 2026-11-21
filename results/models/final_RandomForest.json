@@ -1,0 +1,12 @@
+{
+  "name": "RandomForest",
+  "params": {
+    "n_estimators": 100,
+    "class_weight": "balanced_subsample",
+    "max_depth": null,
+    "max_features": 0.5,
+    "min_samples_leaf": 5
+  },
+  "source": "Q4",
+  "cv_macro_f1": 0.6959597863635175
+}

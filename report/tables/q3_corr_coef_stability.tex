@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q3d bootstrap (20 resamples of train) mean/std of coefficients of correlated predictors}
+\label{tab:q3_corr_coef_stability}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllllll}
+\toprule
+model & AveRooms\_mean & AveRooms\_std & AveBedrms\_mean & AveBedrms\_std & Latitude\_mean & Latitude\_std & Longitude\_mean & Longitude\_std \\
+\midrule
+Lasso & -0.293 & 0.040 & 0.344 & 0.041 & -0.895 & 0.019 & -0.868 & 0.018 \\
+OLS & -0.302 & 0.040 & 0.354 & 0.042 & -0.902 & 0.019 & -0.876 & 0.019 \\
+Ridge & -0.302 & 0.040 & 0.354 & 0.042 & -0.902 & 0.019 & -0.876 & 0.019 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

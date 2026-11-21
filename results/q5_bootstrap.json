@@ -1,0 +1,20 @@
+{
+  "model_A": "RandomForest",
+  "model_B": "NaiveBayes",
+  "statistic": "Macro-F1(A) - Macro-F1(B) on validation",
+  "sampling_unit": "validation example (paired: same resampled indices for A and B)",
+  "B": 10000,
+  "seed": 42,
+  "n_validation": 6782,
+  "observed_delta": 0.044404350531558445,
+  "ci95_percentile": [
+    0.030378661650310324,
+    0.058252308664035905
+  ],
+  "bootstrap_mean": 0.04441990467370045,
+  "bootstrap_sd": 0.007136310759867853,
+  "frac_delta_gt_0": 1.0,
+  "macro_f1_A": 0.7064474005350894,
+  "macro_f1_B": 0.6620430500035309,
+  "n_disagreements": 571
+}

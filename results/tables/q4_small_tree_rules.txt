@@ -1,0 +1,22 @@
+|--- poutcome_success <= 0.50
+|   |--- contact_missing <= 0.50
+|   |   |--- housing_yes <= 0.50
+|   |   |   |--- weights: [5112.56, 7390.28] class: 1
+|   |   |--- housing_yes >  0.50
+|   |   |   |--- weights: [5556.49, 4000.76] class: 0
+|   |--- contact_missing >  0.50
+|   |   |--- marital_married <= 0.50
+|   |   |   |--- weights: [1860.66, 850.59] class: 0
+|   |   |--- marital_married >  0.50
+|   |   |   |--- weights: [3078.07, 718.08] class: 0
+|--- poutcome_success >  0.50
+|   |--- housing_yes <= 0.50
+|   |   |--- month_aug <= 0.50
+|   |   |   |--- weights: [103.62, 1867.87] class: 1
+|   |   |--- month_aug >  0.50
+|   |   |   |--- weights: [24.35, 260.73] class: 1
+|   |--- housing_yes >  0.50
+|   |   |--- pdays <= 83.50
+|   |   |   |--- weights: [13.59, 34.19] class: 1
+|   |   |--- pdays >  83.50
+|   |   |   |--- weights: [74.18, 700.99] class: 1

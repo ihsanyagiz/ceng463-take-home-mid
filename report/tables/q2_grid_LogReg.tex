@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q2b CV grid for LogReg (5-fold stratified, Macro-F1)}
+\label{tab:q2_grid_LogReg}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllll}
+\toprule
+model & C & class\_weight & mean\_test\_score & std\_test\_score & mean\_fit\_time & rank\_test\_score \\
+\midrule
+LogReg & 10.0000 & balanced & 0.6117 & 0.0041 & 0.8261 & 1 \\
+LogReg & 100.0000 & balanced & 0.6116 & 0.0043 & 0.6046 & 2 \\
+LogReg & 1.0000 & balanced & 0.6114 & 0.0040 & 0.8426 & 3 \\
+LogReg & 0.1000 & balanced & 0.6097 & 0.0046 & 0.7707 & 4 \\
+LogReg & 10.0000 & -- & 0.6044 & 0.0075 & 0.6203 & 5 \\
+LogReg & 100.0000 & -- & 0.6042 & 0.0074 & 0.6730 & 6 \\
+LogReg & 1.0000 & -- & 0.6040 & 0.0074 & 0.7493 & 7 \\
+LogReg & 0.1000 & -- & 0.5995 & 0.0056 & 0.7869 & 8 \\
+LogReg & 0.0100 & balanced & 0.5977 & 0.0043 & 0.4781 & 9 \\
+LogReg & 0.0100 & -- & 0.5708 & 0.0079 & 0.5009 & 10 \\
+LogReg & 0.0010 & balanced & 0.5644 & 0.0029 & 0.4283 & 11 \\
+LogReg & 0.0010 & -- & 0.4700 & 0.0006 & 0.3437 & 12 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

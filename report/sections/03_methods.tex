@@ -1,0 +1,43 @@
+\section{Methods and experimental design (Questions 1--5)}
+\label{sec:methods}
+
+\paragraph{Q1.} Audit on all rows (descriptive only); split once; leakage demonstration with LogReg (Section~\ref{sec:audit}).
+
+\paragraph{Q2 (\texttt{src/q2\_classifiers.py}).} Majority-class \texttt{DummyClassifier}, Logistic Regression
+(L2, lbfgs), Naive Bayes and $k$-NN. For Naive Bayes two representations were compared under the same CV:
+GaussianNB on standardised numeric + one-hot features, and BernoulliNB on quantile-binned (one-hot) numeric +
+one-hot categorical features; the representation with the higher CV Macro-F1 was retained. Imbalance study
+(Q2d): with all other hyper-parameters fixed, LogReg without intervention vs.\ \texttt{class\_weight=balanced}
+vs.\ training-only \texttt{RandomOverSampler} vs.\ training-only SMOTE (inside \texttt{imblearn.Pipeline}), and
+$k$-NN with/without oversampling. A decision-threshold sweep for the finalised Q2 model selects the threshold
+on out-of-fold training predictions and only reports it on validation. Error analysis (Q2e) exports the 10 most
+confident false negatives and 10 most confident false positives on validation.
+
+\paragraph{Q3 (\texttt{src/q3\_regression.py}).} Separate random 70/15/15 split (seed 42; \RegNTrain/\RegNVal/\RegNTest).
+DummyRegressor (mean), OLS, Ridge, Lasso, DecisionTreeRegressor and RandomForestRegressor, all with
+\texttt{StandardScaler} inside the pipeline. Complexity curves: polynomial degree 1--4 (Ridge, $\alpha=10^{-3}$)
+and tree depth 1--20, training vs.\ 5-fold CV RMSE; learning curves for OLS and an unpruned tree. Ridge/Lasso
+$\alpha$ chosen by 5-fold CV RMSE; coefficient paths, sparsity and bootstrap stability of coefficients of
+correlated predictors.
+
+\paragraph{Q4 (\texttt{src/q4\_trees\_ensembles.py}).} Decision Tree, Random Forest, AdaBoost (decision stumps,
+SAMME) and Gradient Boosting (depth-3 trees), plus the best Q2 model as reference, with the same split and CV.
+Boosting is tuned with \emph{staged} 5-fold CV: for each learning rate and sample-weighting option one model with
+the maximum number of estimators is fit per fold and evaluated at every checkpoint of
+\texttt{n\_estimators} (equivalent to a grid over \texttt{n\_estimators}). Random-Forest tree correlation is
+measured as the mean pairwise Pearson correlation of per-tree $P(\text{yes})$ on validation. Importances:
+impurity-based (one-hot columns summed back to the original feature) vs.\ permutation importance on validation
+(5 repeats, $\Delta$Macro-F1); a control experiment adds pure-noise features and a near-duplicate of
+\texttt{age}.
+
+\paragraph{Q5 (\texttt{src/q5\_robustness\_selection.py}, \texttt{src/q5\_final\_test.py}).} Seven frozen candidates
+(LogReg, NaiveBayes, kNN, DecisionTree, RandomForest, AdaBoost, GradientBoosting). Repeated stratified CV
+(5 folds $\times$ 3 repeats). Robustness on validation: (i) Gaussian noise added to the six continuous features
+with SD = severity $\times$ training SD, severities $\{0, 0.1, 0.25, 0.5, 1.0\}$; (ii) a fraction
+$\{0, 0.1, 0.2, 0.4\}$ of all feature cells set to missing; 5 repetitions with fixed seeds, identical corrupted
+copies for every model. Paired bootstrap of the validation Macro-F1 difference between the two best models by
+repeated-CV mean (sampling unit: validation example; $B=10{,}000$; seed 42). Multi-criteria table with min-max
+normalised criteria (costs $\log_{10}$-scaled first), base weights, alternative weighting schemes,
+leave-one-criterion-out and 5{,}000 random weight vectors each from a uniform Dirichlet(1) and a Dirichlet
+centred on the base weights ($\alpha = 20\,w$). Configurations and the selection rule are frozen in
+\texttt{results/models/selection\_rule.json} (with a SHA-256 hash) before the single test evaluation.

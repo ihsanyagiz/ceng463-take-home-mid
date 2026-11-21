@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4b decision paths of the depth-3 tree for selected validation rows}
+\label{tab:q4_decision_paths}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllll}
+\toprule
+case & val\_row\_position & path & leaf\_class\_distribution(weighted) & predicted & true \\
+\midrule
+predicted yes, true yes & 1893 & poutcome\_success = 0 <= 0.5 AND contact\_missing = 0 <= 0.5 AND housing\_yes = 0 <= 0.5 & [0.409, 0.591] & yes & yes \\
+predicted no, true no & 0 & poutcome\_success = 0 <= 0.5 AND contact\_missing = 1 > 0.5 AND marital\_married = 0 <= 0.5 & [0.686, 0.314] & no & no \\
+predicted no, true yes (error) & 14 & poutcome\_success = 0 <= 0.5 AND contact\_missing = 1 > 0.5 AND marital\_married = 1 > 0.5 & [0.811, 0.189] & no & yes \\
+predicted yes, true no (error) & 1888 & poutcome\_success = 0 <= 0.5 AND contact\_missing = 0 <= 0.5 AND housing\_yes = 0 <= 0.5 & [0.409, 0.591] & yes & no \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

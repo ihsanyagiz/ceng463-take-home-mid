@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4 selected hyper-parameters (by CV Macro-F1 on train)}
+\label{tab:q4_best_params}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+model & params \\
+\midrule
+DecisionTree & \{'ccp\_alpha': 0.001, 'class\_weight': 'balanced', 'criterion': 'gini', 'max\_depth': 12, 'min\_samples\_leaf': 20\} \\
+RandomForest & \{'n\_estimators': 100, 'class\_weight': 'balanced\_subsample', 'max\_depth': None, 'max\_features': 0.5, 'min\_samples\_leaf': 5\} \\
+AdaBoost & \{'n\_estimators': 400, 'learning\_rate': 1.0, 'balanced\_weights': True\} \\
+GradientBoosting & \{'n\_estimators': 400, 'learning\_rate': 0.1, 'balanced\_weights': True\} \\
+NaiveBayes & \{'representation': 'bernoulli', 'alpha': 1.0, 'n\_bins': 5\} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

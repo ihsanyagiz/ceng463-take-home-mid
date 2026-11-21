@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q3d standardised coefficients. Ridge alpha=0.0001, Lasso alpha=0.0006813}
+\label{tab:q3_coefficients}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+feature & OLS & Ridge(best) & Lasso(best) & Lasso(alpha=0.05) \\
+\midrule
+MedInc & 0.8492 & 0.8492 & 0.8456 & 0.7387 \\
+HouseAge & 0.1221 & 0.1221 & 0.1227 & 0.1386 \\
+AveRooms & -0.2995 & -0.2995 & -0.2902 & -0.0000 \\
+AveBedrms & 0.3484 & 0.3484 & 0.3390 & 0.0000 \\
+Population & -0.0009 & -0.0009 & -0.0000 & 0.0000 \\
+AveOccup & -0.0417 & -0.0417 & -0.0411 & -0.0000 \\
+Latitude & -0.8939 & -0.8939 & -0.8865 & -0.2637 \\
+Longitude & -0.8686 & -0.8686 & -0.8608 & -0.2226 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

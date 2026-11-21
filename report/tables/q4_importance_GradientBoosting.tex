@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4e GradientBoosting: built-in (impurity) vs. permutation importance on validation}
+\label{tab:q4_importance_GradientBoosting}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllll}
+\toprule
+feature & builtin\_impurity & perm\_mean\_drop\_macro\_f1 & perm\_std & builtin\_rank & perm\_rank \\
+\midrule
+month & 0.1840 & 0.1328 & 0.0021 & 2.0000 & 1.0000 \\
+day\_of\_week & 0.0709 & 0.0759 & 0.0031 & 6.0000 & 2.0000 \\
+contact & 0.1413 & 0.0674 & 0.0044 & 3.0000 & 3.0000 \\
+poutcome & 0.2161 & 0.0227 & 0.0029 & 1.0000 & 4.0000 \\
+pdays & 0.0416 & 0.0141 & 0.0011 & 8.0000 & 5.0000 \\
+housing & 0.0594 & 0.0116 & 0.0017 & 7.0000 & 6.0000 \\
+balance & 0.0986 & 0.0073 & 0.0029 & 4.0000 & 7.0000 \\
+age & 0.0719 & 0.0071 & 0.0017 & 5.0000 & 8.0000 \\
+campaign & 0.0368 & 0.0067 & 0.0023 & 9.0000 & 9.0000 \\
+loan & 0.0110 & 0.0031 & 0.0017 & 13.0000 & 10.0000 \\
+previous & 0.0116 & 0.0029 & 0.0006 & 12.0000 & 11.0000 \\
+default & 0.0005 & 0.0000 & 0.0003 & 15.0000 & 12.0000 \\
+prev\_contacted & 0.0000 & 0.0000 & 0.0000 & 16.0000 & 13.0000 \\
+job & 0.0204 & -0.0006 & 0.0007 & 11.0000 & 14.0000 \\
+education & 0.0095 & -0.0015 & 0.0003 & 14.0000 & 15.0000 \\
+marital & 0.0264 & -0.0021 & 0.0010 & 10.0000 & 16.0000 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

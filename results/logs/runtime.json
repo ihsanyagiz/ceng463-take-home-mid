@@ -1,0 +1,10 @@
+{
+  "src.environment": 0.6,
+  "src.q1_data_leakage": 26.7,
+  "src.q2_classifiers": 270.7,
+  "src.q3_regression": 283.4,
+  "src.q4_trees_ensembles": 1134.9,
+  "src.q5_robustness_selection": 550.6,
+  "src.export_report_assets": 0.8,
+  "TOTAL": 2267.8
+}

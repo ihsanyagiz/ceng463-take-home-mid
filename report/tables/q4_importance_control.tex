@@ -1,0 +1,33 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4e control: RF importances with added noise / near-duplicate features}
+\label{tab:q4_importance_control}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+feature & builtin\_impurity & perm\_mean\_drop\_macro\_f1 & perm\_std & builtin\_rank \\
+\midrule
+balance & 0.1147 & 0.0121 & 0.0037 & 1 \\
+NOISE\_id\_highcard & 0.0983 & 0.0026 & 0.0011 & 2 \\
+age\_near\_duplicate & 0.0978 & 0.0059 & 0.0025 & 3 \\
+NOISE\_continuous & 0.0972 & -0.0011 & 0.0027 & 4 \\
+month & 0.0912 & 0.0850 & 0.0050 & 5 \\
+poutcome & 0.0862 & 0.0512 & 0.0019 & 6 \\
+day\_of\_week & 0.0812 & 0.0238 & 0.0021 & 7 \\
+contact & 0.0678 & 0.0645 & 0.0046 & 8 \\
+age & 0.0500 & 0.0010 & 0.0020 & 9 \\
+job & 0.0377 & 0.0034 & 0.0013 & 10 \\
+campaign & 0.0374 & 0.0090 & 0.0004 & 11 \\
+housing & 0.0341 & 0.0204 & 0.0022 & 12 \\
+pdays & 0.0331 & 0.0125 & 0.0019 & 13 \\
+education & 0.0232 & -0.0003 & 0.0007 & 14 \\
+marital & 0.0222 & 0.0002 & 0.0011 & 15 \\
+loan & 0.0123 & 0.0019 & 0.0027 & 16 \\
+previous & 0.0100 & 0.0028 & 0.0012 & 17 \\
+prev\_contacted & 0.0047 & 0.0011 & 0.0007 & 18 \\
+default & 0.0010 & 0.0000 & 0.0000 & 19 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

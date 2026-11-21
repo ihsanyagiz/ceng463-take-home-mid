@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4e tree/ensemble models vs. best Q2 model (validation; times on this machine)}
+\label{tab:q4_comparison}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllllllll}
+\toprule
+model & cv\_macro\_f1 & cv\_std & val\_macro\_f1 & val\_accuracy & val\_roc\_auc & val\_pr\_auc & val\_recall\_yes & fit\_time\_s & predict\_time\_s & n\_jobs \\
+\midrule
+DecisionTree & 0.6708 & 0.0248 & 0.6958 & 0.8583 & 0.7704 & 0.3964 & 0.5441 & 0.4199 & 0.0235 & 1 \\
+RandomForest & 0.6960 & 0.0078 & 0.7064 & 0.8804 & 0.7954 & 0.4523 & 0.4723 & 3.9480 & 0.0868 & all cores \\
+AdaBoost & 0.6193 & 0.0076 & 0.6188 & 0.7566 & 0.7833 & 0.4290 & 0.6637 & 20.6700 & 0.6835 & 1 \\
+GradientBoosting & 0.6630 & 0.0066 & 0.6736 & 0.8180 & 0.8050 & 0.4615 & 0.6524 & 35.6057 & 0.0655 & 1 \\
+NaiveBayes & 0.6657 & 0.0060 & 0.6620 & 0.8523 & 0.7620 & 0.3940 & 0.4358 & 0.1984 & 0.0384 & 1 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

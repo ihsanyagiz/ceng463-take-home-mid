@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4e DecisionTree: built-in (impurity) vs. permutation importance on validation}
+\label{tab:q4_importance_DecisionTree}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllll}
+\toprule
+feature & builtin\_impurity & perm\_mean\_drop\_macro\_f1 & perm\_std & builtin\_rank & perm\_rank \\
+\midrule
+month & 0.2290 & 0.1421 & 0.0034 & 2.0000 & 1.0000 \\
+contact & 0.1894 & 0.0892 & 0.0039 & 3.0000 & 2.0000 \\
+housing & 0.0801 & 0.0557 & 0.0003 & 5.0000 & 3.0000 \\
+day\_of\_week & 0.0841 & 0.0504 & 0.0019 & 4.0000 & 4.0000 \\
+poutcome & 0.3136 & 0.0392 & 0.0037 & 1.0000 & 5.0000 \\
+campaign & 0.0217 & 0.0286 & 0.0014 & 8.0000 & 6.0000 \\
+pdays & 0.0409 & 0.0204 & 0.0007 & 6.0000 & 7.0000 \\
+balance & 0.0115 & 0.0000 & 0.0000 & 9.0000 & 12.0000 \\
+job & 0.0000 & 0.0000 & 0.0000 & 13.0000 & 12.0000 \\
+prev\_contacted & 0.0000 & 0.0000 & 0.0000 & 13.0000 & 12.0000 \\
+previous & 0.0000 & 0.0000 & 0.0000 & 13.0000 & 12.0000 \\
+age & 0.0000 & 0.0000 & 0.0000 & 13.0000 & 12.0000 \\
+default & 0.0000 & 0.0000 & 0.0000 & 13.0000 & 12.0000 \\
+education & 0.0000 & 0.0000 & 0.0000 & 13.0000 & 12.0000 \\
+marital & 0.0296 & 0.0000 & 0.0000 & 7.0000 & 12.0000 \\
+loan & 0.0000 & 0.0000 & 0.0000 & 13.0000 & 12.0000 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

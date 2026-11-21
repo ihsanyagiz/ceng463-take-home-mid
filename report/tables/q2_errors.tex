@@ -1,0 +1,34 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q2e most confident validation errors of NaiveBayes (10 FN + 10 FP)}
+\label{tab:q2_errors}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllllllllll}
+\toprule
+val\_row\_id & age & job & balance & contact & month & campaign & pdays & poutcome & y\_true & p\_yes & error\_type \\
+\midrule
+4455 & 31 & blue-collar & 2 & -- & may & 2 & -1 & -- & 1 & 0.000 & FN \\
+5236 & 35 & blue-collar & 994 & -- & may & 8 & -1 & -- & 1 & 0.000 & FN \\
+891 & 53 & services & -291 & -- & may & 1 & -1 & -- & 1 & 0.000 & FN \\
+5162 & 38 & blue-collar & 622 & -- & may & 2 & -1 & -- & 1 & 0.000 & FN \\
+4753 & 41 & blue-collar & 1250 & -- & may & 2 & -1 & -- & 1 & 0.000 & FN \\
+2650 & 46 & blue-collar & 369 & -- & may & 2 & -1 & -- & 1 & 0.000 & FN \\
+8345 & 44 & management & -411 & -- & jun & 4 & -1 & -- & 1 & 0.001 & FN \\
+8213 & 42 & blue-collar & 443 & -- & jun & 5 & -1 & -- & 1 & 0.001 & FN \\
+6800 & 27 & blue-collar & 294 & -- & may & 2 & -1 & -- & 1 & 0.001 & FN \\
+5976 & 30 & admin. & 1265 & -- & may & 2 & -1 & -- & 1 & 0.001 & FN \\
+41580 & 31 & student & 64 & cellular & sep & 1 & 105 & success & 0 & 0.999 & FP \\
+43135 & 25 & student & 469 & cellular & feb & 1 & 187 & success & 0 & 0.997 & FP \\
+40554 & 26 & student & 10086 & cellular & jul & 3 & 78 & success & 0 & 0.997 & FP \\
+43293 & 25 & student & 839 & cellular & mar & 1 & 181 & other & 0 & 0.997 & FP \\
+41414 & 27 & admin. & 313 & cellular & sep & 1 & 93 & success & 0 & 0.996 & FP \\
+44777 & 62 & admin. & 4608 & cellular & sep & 1 & 186 & success & 0 & 0.996 & FP \\
+44806 & 74 & retired & 2308 & telephone & sep & 2 & 535 & success & 0 & 0.995 & FP \\
+44946 & 28 & management & 616 & cellular & oct & 1 & 503 & success & 0 & 0.994 & FP \\
+44027 & 30 & student & 314 & cellular & jun & 1 & 204 & success & 0 & 0.994 & FP \\
+42479 & 54 & management & 380 & cellular & dec & 1 & 188 & success & 0 & 0.994 & FP \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

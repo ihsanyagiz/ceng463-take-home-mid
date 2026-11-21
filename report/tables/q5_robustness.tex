@@ -1,0 +1,28 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q5b validation Macro-F1 under corruption (mean of 5 repeats); noise severity = SD multiple of training SD; missing = cell rate}
+\label{tab:q5_robustness}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllllll}
+\toprule
+scenario & model & 0.0 & 0.1 & 0.2 & 0.25 & 0.4 & 0.5 & 1.0 \\
+\midrule
+gaussian\_noise & AdaBoost & 0.6188 & 0.6117 & -- & 0.6002 & -- & 0.5831 & 0.5499 \\
+gaussian\_noise & DecisionTree & 0.6958 & 0.6856 & -- & 0.6695 & -- & 0.6500 & 0.6223 \\
+gaussian\_noise & GradientBoosting & 0.6736 & 0.6493 & -- & 0.6290 & -- & 0.6013 & 0.5732 \\
+gaussian\_noise & LogReg & 0.6132 & 0.6134 & -- & 0.6134 & -- & 0.6125 & 0.6002 \\
+gaussian\_noise & NaiveBayes & 0.6620 & 0.6569 & -- & 0.6574 & -- & 0.6561 & 0.6526 \\
+gaussian\_noise & RandomForest & 0.7064 & 0.6978 & -- & 0.6810 & -- & 0.6643 & 0.6368 \\
+gaussian\_noise & kNN & 0.6298 & 0.6291 & -- & 0.6297 & -- & 0.6268 & 0.6196 \\
+missing\_features & AdaBoost & 0.6188 & 0.6154 & 0.6126 & -- & 0.6042 & -- & -- \\
+missing\_features & DecisionTree & 0.6958 & 0.6577 & 0.6260 & -- & 0.5846 & -- & -- \\
+missing\_features & GradientBoosting & 0.6736 & 0.6593 & 0.6488 & -- & 0.6158 & -- & -- \\
+missing\_features & LogReg & 0.6132 & 0.6087 & 0.6014 & -- & 0.5940 & -- & -- \\
+missing\_features & NaiveBayes & 0.6620 & 0.6574 & 0.6386 & -- & 0.5857 & -- & -- \\
+missing\_features & RandomForest & 0.7064 & 0.6821 & 0.6620 & -- & 0.6212 & -- & -- \\
+missing\_features & kNN & 0.6298 & 0.6169 & 0.5985 & -- & 0.5630 & -- & -- \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

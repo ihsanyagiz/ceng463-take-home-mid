@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q2d decision threshold for NaiveBayes (chosen on OOF train predictions)}
+\label{tab:q2_threshold_summary}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+rule & threshold & val\_macro\_f1 & val\_f1\_yes \\
+\midrule
+default 0.5 & 0.5000 & 0.6620 & 0.4085 \\
+max OOF Macro-F1 (train CV) & 0.6100 & 0.6687 & 0.4095 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

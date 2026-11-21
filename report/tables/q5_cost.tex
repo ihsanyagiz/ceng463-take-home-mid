@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q5d training time (s, full train) and inference time (ms per 1000 rows, validation)}
+\label{tab:q5_cost}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lll}
+\toprule
+model & fit\_time\_s & predict\_ms\_per\_1000 \\
+\midrule
+LogReg & 0.3336 & 3.2619 \\
+NaiveBayes & 0.1966 & 4.8012 \\
+kNN & 0.1254 & 611.8490 \\
+DecisionTree & 0.3612 & 3.2200 \\
+RandomForest & 2.7753 & 9.4799 \\
+AdaBoost & 15.9071 & 92.1459 \\
+GradientBoosting & 30.6614 & 8.9513 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

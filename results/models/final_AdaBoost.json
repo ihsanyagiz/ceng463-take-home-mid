@@ -1,0 +1,10 @@
+{
+  "name": "AdaBoost",
+  "params": {
+    "n_estimators": 400,
+    "learning_rate": 1.0,
+    "balanced_weights": true
+  },
+  "source": "Q4",
+  "cv_macro_f1": 0.6193180414883158
+}

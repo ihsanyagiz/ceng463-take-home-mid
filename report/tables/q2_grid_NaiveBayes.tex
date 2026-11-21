@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q2b CV grid for NaiveBayes (5-fold stratified, Macro-F1)}
+\label{tab:q2_grid_NaiveBayes}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllllll}
+\toprule
+model & representation & var\_smoothing & mean\_test\_score & std\_test\_score & mean\_fit\_time & rank\_test\_score & alpha & num\_\_bins\_\_n\_bins \\
+\midrule
+NaiveBayes & gaussian (scaled num + one-hot) & 0.0010 & 0.6428 & 0.0090 & 0.3658 & 1 & -- & -- \\
+NaiveBayes & gaussian (scaled num + one-hot) & 0.0000 & 0.6427 & 0.0082 & 0.3722 & 2 & -- & -- \\
+NaiveBayes & gaussian (scaled num + one-hot) & 0.0000 & 0.6427 & 0.0082 & 0.3544 & 3 & -- & -- \\
+NaiveBayes & gaussian (scaled num + one-hot) & 0.1000 & 0.6135 & 0.0055 & 0.4043 & 4 & -- & -- \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6657 & 0.0060 & 0.3609 & 1 & 1.0000 & 5.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6656 & 0.0060 & 0.4515 & 2 & 0.0100 & 5.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6656 & 0.0060 & 0.4850 & 2 & 0.1000 & 5.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6640 & 0.0068 & 0.3337 & 4 & 10.0000 & 5.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6624 & 0.0025 & 0.3429 & 5 & 10.0000 & 3.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6624 & 0.0028 & 0.4314 & 6 & 1.0000 & 3.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6623 & 0.0033 & 0.3749 & 7 & 0.0100 & 3.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6623 & 0.0033 & 0.4932 & 7 & 0.1000 & 3.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6484 & 0.0066 & 0.4504 & 9 & 0.0100 & 10.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6484 & 0.0065 & 0.5383 & 10 & 0.1000 & 10.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6484 & 0.0065 & 0.3567 & 10 & 1.0000 & 10.0000 \\
+NaiveBayes & bernoulli (quantile-binned num + one-hot) & -- & 0.6471 & 0.0063 & 0.3292 & 12 & 10.0000 & 10.0000 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

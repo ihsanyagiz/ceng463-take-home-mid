@@ -1,0 +1,9 @@
+{
+  "name": "LogReg",
+  "params": {
+    "C": 10.0,
+    "class_weight": "balanced"
+  },
+  "source": "Q2",
+  "cv_macro_f1": 0.6117417415556963
+}

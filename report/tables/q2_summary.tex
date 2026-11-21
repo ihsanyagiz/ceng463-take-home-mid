@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q2c validation metrics (positive class = yes)}
+\label{tab:q2_summary}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllllllllllll}
+\toprule
+model & cv\_macro\_f1 & cv\_macro\_f1\_std & val\_accuracy & val\_macro\_f1 & val\_precision\_no & val\_recall\_no & val\_f1\_no & val\_precision\_yes & val\_recall\_yes & val\_f1\_yes & val\_roc\_auc & val\_pr\_auc & fit\_time\_s & predict\_time\_s \\
+\midrule
+LogReg & 0.6117 & 0.0041 & 0.7572 & 0.6132 & 0.9402 & 0.7742 & 0.8492 & 0.2696 & 0.6285 & 0.3773 & 0.7719 & 0.4162 & 0.3099 & 0.0234 \\
+NaiveBayes & 0.6657 & 0.0060 & 0.8523 & 0.6620 & 0.9238 & 0.9075 & 0.9156 & 0.3844 & 0.4358 & 0.4085 & 0.7620 & 0.3940 & 0.1848 & 0.0376 \\
+kNN & 0.6246 & 0.0077 & 0.8801 & 0.6298 & 0.9061 & 0.9641 & 0.9342 & 0.4769 & 0.2469 & 0.3253 & 0.6853 & 0.2620 & 0.1256 & 4.1692 \\
+Dummy & 0.4689 & 0.0000 & 0.8829 & 0.4689 & 0.8829 & 1.0000 & 0.9378 & 0.0000 & 0.0000 & 0.0000 & 0.5000 & 0.1171 & 0.1306 & 0.0249 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

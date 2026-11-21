@@ -1,0 +1,36 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4c Random Forest: train vs. validation Macro-F1 (other params at CV optimum)}
+\label{tab:q4_rf_curves}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+param & value & train\_macro\_f1 & val\_macro\_f1 \\
+\midrule
+n\_estimators & 10 & 0.8546 & 0.6892 \\
+n\_estimators & 25 & 0.8711 & 0.7010 \\
+n\_estimators & 50 & 0.8775 & 0.7018 \\
+n\_estimators & 100 & 0.8813 & 0.7064 \\
+n\_estimators & 200 & 0.8833 & 0.7054 \\
+n\_estimators & 400 & 0.8837 & 0.7068 \\
+max\_depth & 2 & 0.5553 & 0.5515 \\
+max\_depth & 4 & 0.5816 & 0.5818 \\
+max\_depth & 6 & 0.6384 & 0.6368 \\
+max\_depth & 8 & 0.6638 & 0.6517 \\
+max\_depth & 10 & 0.6995 & 0.6783 \\
+max\_depth & 14 & 0.7657 & 0.6979 \\
+max\_depth & 18 & 0.8243 & 0.7074 \\
+max\_depth & 24 & 0.8675 & 0.7067 \\
+max\_depth & None & 0.8786 & 0.7034 \\
+max\_features & 1 & 0.7094 & 0.6703 \\
+max\_features & 2 & 0.7212 & 0.6771 \\
+max\_features & sqrt & 0.8010 & 0.7030 \\
+max\_features & 0.25 & 0.8429 & 0.7073 \\
+max\_features & 0.5 & 0.8786 & 0.7034 \\
+max\_features & 0.75 & 0.8850 & 0.7072 \\
+max\_features & 1.0 & 0.8896 & 0.7046 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

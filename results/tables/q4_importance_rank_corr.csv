@@ -1,0 +1,5 @@
+model,spearman_rank_corr
+AdaBoost,0.8085419734904271
+DecisionTree,0.8864310877107553
+GradientBoosting,0.8117647058823528
+RandomForest,0.6088235294117647

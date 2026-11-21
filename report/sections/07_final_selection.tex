@@ -1,0 +1,40 @@
+\section{Final model-selection rationale and test-set evaluation}
+\label{sec:final}
+
+\subsection{Q5d: Multi-criteria selection}
+Criteria (direction): performance = repeated-CV mean Macro-F1 ($\uparrow$); stability = repeated-CV SD
+($\downarrow$); robustness = absolute validation Macro-F1 at the highest Gaussian-noise severity
+($\sigma = 1.0$) ($\uparrow$); interpretability and implementation simplicity = ordinal 1--5 scores set in
+\texttt{src/config.py} ($\uparrow$); training cost = fit time on the training partition ($\downarrow$);
+inference cost = prediction time per 1000 rows ($\downarrow$). The two cost criteria are $\log_{10}$-transformed
+before normalisation. Each criterion is then min-max normalised over the candidates so that 1 = best. The
+normalised areas under both degradation curves are reported alongside (Table~\ref{tab:q5_robustness_criteria})
+but are not used in the weighted score. Sensitivity analysis: fixed alternative schemes, leave-one-criterion-out,
+and 5{,}000 Dirichlet weight vectors drawn (i) uniformly over the simplex ($\alpha = 1$) and (ii) centred on
+the base weights ($\alpha = 20\,w$).
+\inputtable{q5_robustness_criteria}
+\inputtable{q5_cost}
+\inputtable{q5_mcda_weights}
+\inputtable{q5_mcda}
+\inputtable{q5_sensitivity_schemes}
+\inputtable{q5_dirichlet_wins}
+\fig{q5_sensitivity_heatmap}{Model ranks under alternative weighting schemes.}
+
+% TODO(student): interpret
+\studenttodo{Q5d: justify the ordinal interpretability/implementation scores and the base weights for this
+banking use case; discuss whether the chosen model changes under the alternative schemes and the Dirichlet
+analysis; caveats of min-max normalisation (small differences stretched to [0,1]).}
+
+\subsection{Q5e: Frozen configuration and single test evaluation}
+Frozen configurations and the selection rule (\texttt{results/models/selection\_rule.json}) were written by
+\texttt{src/q5\_robustness\_selection.py} before \texttt{src/q5\_final\_test.py} was executed once. Candidates were
+refit on training+validation and evaluated once on the test partition; the run is logged in
+\texttt{results/logs/final\_test\_runs.log}.
+\inputtable{q5_test_results}
+\inputtable{q5_test_per_class}
+\fig[0.4]{q5_test_confusion_selected}{Test confusion matrix of the selected model.}
+\inputtable{q5_test_results_regression}
+
+% TODO(student): interpret
+\studenttodo{Q5e: report the selected model and its test metrics; compare test with validation/CV estimates
+(generalisation gap); confirm that test results did not change the selection; discuss limitations.}

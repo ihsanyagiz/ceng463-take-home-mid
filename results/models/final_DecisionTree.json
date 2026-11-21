@@ -1,0 +1,12 @@
+{
+  "name": "DecisionTree",
+  "params": {
+    "ccp_alpha": 0.001,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": 12,
+    "min_samples_leaf": 20
+  },
+  "source": "Q4",
+  "cv_macro_f1": 0.6708094549572524
+}

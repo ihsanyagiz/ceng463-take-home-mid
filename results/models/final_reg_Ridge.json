@@ -1,0 +1,7 @@
+{
+  "name": "Ridge",
+  "params": {
+    "alpha": 0.0001
+  },
+  "source": "Q3"
+}

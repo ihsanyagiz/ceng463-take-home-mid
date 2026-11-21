@@ -1,0 +1,8 @@
+criterion,weight
+performance,0.4
+robustness,0.2
+stability,0.1
+interpretability,0.15
+train_cost,0.05
+inference_cost,0.05
+implementation,0.05

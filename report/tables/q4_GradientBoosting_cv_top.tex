@@ -1,0 +1,29 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4d GradientBoosting: top-15 configurations (staged 5-fold CV Macro-F1)}
+\label{tab:q4_GradientBoosting_cv_top}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+learning\_rate & balanced\_weights & n\_estimators & mean\_test\_score & std\_test\_score \\
+\midrule
+0.1000 & True & 400 & 0.6630 & 0.0066 \\
+0.2000 & True & 200 & 0.6627 & 0.0061 \\
+0.2000 & True & 400 & 0.6623 & 0.0036 \\
+0.1000 & True & 300 & 0.6619 & 0.0050 \\
+0.2000 & True & 150 & 0.6611 & 0.0069 \\
+0.0500 & True & 400 & 0.6604 & 0.0099 \\
+0.2000 & True & 300 & 0.6603 & 0.0052 \\
+0.1000 & True & 200 & 0.6601 & 0.0069 \\
+0.2000 & True & 100 & 0.6601 & 0.0069 \\
+0.1000 & True & 150 & 0.6587 & 0.0049 \\
+0.0500 & True & 300 & 0.6567 & 0.0094 \\
+0.2000 & True & 50 & 0.6531 & 0.0097 \\
+0.1000 & True & 100 & 0.6524 & 0.0047 \\
+0.0500 & True & 200 & 0.6493 & 0.0081 \\
+0.2000 & False & 400 & 0.6468 & 0.0049 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

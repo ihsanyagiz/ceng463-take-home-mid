@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q1c transformation x model family}
+\label{tab:q1_transform_matrix}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+transformation & LogReg & NaiveBayes (Gauss | Bern) & kNN & Trees/Ensembles \\
+\midrule
+Numeric: median imputation & yes & yes | yes & yes & yes \\
+Numeric: standardisation & yes (optimisation, penalty) & yes | n/a & yes (distances) & no (split-invariant) \\
+Numeric: quantile discretisation & no & no | yes (binary features) & no & no \\
+Categorical: constant 'missing' level & yes & yes | yes & yes & yes \\
+Categorical: one-hot, handle\_unknown=ignore & yes & yes | yes & yes & yes \\
+Class weighting / resampling (train only) & class\_weight & n/a & n/a (resampling only) & class\_weight / sample\_weight \\
+Leaky feature 'duration' & dropped & dropped & dropped & dropped \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

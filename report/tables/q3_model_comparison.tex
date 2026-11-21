@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q3b/e regression results. MAE and RMSE in units of \$100,000; R2 unitless}
+\label{tab:q3_model_comparison}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllllll}
+\toprule
+model & cv\_RMSE & train\_MAE & train\_RMSE & train\_R2 & val\_MAE & val\_RMSE & val\_R2 & fit\_time\_s \\
+\midrule
+Dummy(mean) & 1.1575 & 0.9143 & 1.1575 & 0.0000 & 0.8912 & 1.1298 & -0.0002 & 0.0039 \\
+OLS & 0.7252 & 0.5310 & 0.7235 & 0.6093 & 0.5291 & 0.7262 & 0.5868 & 0.0103 \\
+Ridge & 0.7252 & 0.5310 & 0.7235 & 0.6093 & 0.5291 & 0.7262 & 0.5868 & 0.0054 \\
+Lasso & 0.7252 & 0.5310 & 0.7235 & 0.6093 & 0.5291 & 0.7262 & 0.5868 & 0.0599 \\
+DecisionTree & 0.6238 & 0.3447 & 0.5118 & 0.8045 & 0.4223 & 0.6193 & 0.6995 & 0.1501 \\
+RandomForest & 0.5012 & 0.1236 & 0.1846 & 0.9746 & 0.3336 & 0.4965 & 0.8068 & 2.6098 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

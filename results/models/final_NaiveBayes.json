@@ -1,0 +1,10 @@
+{
+  "name": "NaiveBayes",
+  "params": {
+    "representation": "bernoulli",
+    "alpha": 1.0,
+    "n_bins": 5
+  },
+  "source": "Q2",
+  "cv_macro_f1": 0.6656667383414098
+}

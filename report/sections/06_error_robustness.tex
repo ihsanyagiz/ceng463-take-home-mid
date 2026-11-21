@@ -1,0 +1,44 @@
+\section{Error analysis, robustness, uncertainty, and limitations}
+\label{sec:errors}
+
+\subsection{Q2e: Validation error analysis}
+The finalised Q2 candidate (best CV Macro-F1, see \texttt{results/models/q2\_best.json}) was analysed on
+validation only. All misclassified validation rows are in \texttt{results/tables/q2\_errors\_all.csv}.
+\inputtable{q2_errors}
+\inputtable{q2_error_groups}
+\inputtable{q2_error_numeric_profile}
+
+% TODO(student): interpret
+\studenttodo{Q2e: categorise at least ten errors into patterns (e.g.\ confident FPs with
+\texttt{poutcome}=success, FNs among first-time contacts with no history, seasonal months, \texttt{contact}
+missing); connect them to input characteristics; propose concrete improvements (features, representation,
+threshold, model class) without using test labels.}
+
+\subsection{Q5a: Cross-validation variability}
+\inputtable{q5_repeated_cv}
+\fig[0.85]{q5_repeated_cv_box}{Fold-wise Macro-F1 of frozen candidates.}
+
+\subsection{Q5b: Robustness}
+\inputtable{q5_robustness}
+\inputtable{q5_robustness_retention}
+\fig{q5_robustness}{Validation Macro-F1 vs.\ corruption severity (mean $\pm$ SD over 5 repetitions).}
+
+% TODO(student): interpret
+\studenttodo{Q5a/b: which models are stable across folds; which degrade fastest under noise/missingness and
+why (distance-based kNN vs.\ trees' thresholds vs.\ linear models; how imputation interacts with missingness).
+Is the scenario realistic for this domain?}
+
+\subsection{Q5c: Paired bootstrap}
+\inputtable{q5_bootstrap}
+\fig[0.7]{q5_bootstrap}{Bootstrap distribution of the Macro-F1 difference.}
+
+% TODO(student): interpret
+\studenttodo{Q5c: what the interval permits (uncertainty of the difference on this validation distribution;
+whether 0 is excluded) and does not permit (no causal/general claim, does not cover training randomness or
+other datasets, not a test-set statement, multiple comparisons). State sampling unit and $B$.}
+
+\subsection{Limitations and threats to validity}
+% TODO(student): interpret
+\studenttodo{Threats to validity of the full study: single dataset per task, campaign data from 2008--2010
+(temporal shift), no temporal split, subjective interpretability/implementation scores and weights, limited
+grids, validation reused for several analyses, Macro-F1 at a fixed 0.5 threshold, etc.}

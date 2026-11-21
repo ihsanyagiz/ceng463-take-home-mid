@@ -1,0 +1,5 @@
+model,best_params
+LogReg,"{'C': 10.0, 'class_weight': 'balanced'}"
+NaiveBayes,"{'representation': 'bernoulli', 'alpha': 1.0, 'n_bins': 5}"
+kNN,"{'n_neighbors': 3, 'p': 1, 'weights': 'uniform'}"
+Dummy,{}

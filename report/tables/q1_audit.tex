@@ -1,0 +1,31 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q1a dataset audit (Bank Marketing, all rows)}
+\label{tab:q1_audit}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllllllll}
+\toprule
+feature & dtype & n\_missing\_unknown & pct\_missing\_unknown & n\_unique & min & median & max & n\_iqr\_outliers & note \\
+\midrule
+age & int64 & 0 & 0.00 & 77 & 18.00 & 39.00 & 95.00 & 487.00 &  \\
+job & object & 288 & 0.64 & 11 & -- & -- & -- & -- &  \\
+marital & object & 0 & 0.00 & 3 & -- & -- & -- & -- &  \\
+education & object & 1857 & 4.11 & 3 & -- & -- & -- & -- &  \\
+default & object & 0 & 0.00 & 2 & -- & -- & -- & -- & very rare 'yes' level \\
+balance & int64 & 0 & 0.00 & 7168 & -8019.00 & 448.00 & 102127.00 & 4729.00 & negative values and heavy right tail \\
+housing & object & 0 & 0.00 & 2 & -- & -- & -- & -- &  \\
+loan & object & 0 & 0.00 & 2 & -- & -- & -- & -- &  \\
+contact & object & 13020 & 28.80 & 2 & -- & -- & -- & -- & 'unknown' kept as 'missing' level \\
+day\_of\_week & int64 & 0 & 0.00 & 31 & 1.00 & 16.00 & 31.00 & 0.00 & actually day of month (1-31) in UCI file \\
+month & object & 0 & 0.00 & 12 & -- & -- & -- & -- &  \\
+duration & int64 & 0 & 0.00 & 1573 & 0.00 & 180.00 & 4918.00 & 3235.00 & LEAKAGE: known only after the call (outcome-dependent); excluded \\
+campaign & int64 & 0 & 0.00 & 48 & 1.00 & 2.00 & 63.00 & 3064.00 & heavy right tail (extreme call counts) \\
+pdays & int64 & 0 & 0.00 & 559 & -1.00 & -1.00 & 871.00 & 8257.00 & sentinel -1 = never contacted; flag prev\_contacted added \\
+previous & int64 & 0 & 0.00 & 41 & 0.00 & 0.00 & 275.00 & 8257.00 & heavy right tail; 0 for never-contacted \\
+poutcome & object & 36959 & 81.75 & 3 & -- & -- & -- & -- & mostly missing = no previous campaign; kept as 'missing' level \\
+y & object & 0 & 0.00 & 2 & -- & -- & -- & -- & target (yes=1); imbalanced \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

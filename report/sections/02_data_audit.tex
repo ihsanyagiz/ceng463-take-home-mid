@@ -1,0 +1,68 @@
+\section{Data audit, preprocessing, and leakage controls}
+\label{sec:audit}
+
+\subsection{Q1a: Dataset audit}
+\inputtable{q1_audit}
+\inputtable{q1_anomalies}
+\inputtable{q1_class_dist}
+\inputtable{q1_duration_by_target}
+\fig{q1_numeric_distributions}{Distributions of heavy-tailed / sentinel-valued numeric features (log count axis).}
+
+% TODO(student): interpret
+\studenttodo{Q1a: describe domain, target, feature types; discuss missing/\texttt{unknown} values
+(esp.\ \texttt{poutcome}, \texttt{contact}), duplicates, anomalies (\texttt{pdays}=-1 sentinel, negative
+\texttt{balance}, \texttt{campaign} extremes) and why \texttt{duration} is a problematic (leaking) predictor.}
+
+\subsection{Q1b: Partitioning}
+A stratified 70/15/15 train/validation/test split was created once with seed 42 before any fitting
+(Table~\ref{tab:q1_split_sizes}); indices are stored in \texttt{data/splits/}. Partition sizes:
+train \NTrain, validation \NVal, test \NTest. Stratified and plain random splitting were each repeated over 100
+seeds on the full data and on a random 200-row sample (Table~\ref{tab:q1_split_comparison},
+Figure~\ref{fig:q1_split_deviation}).
+\inputtable{q1_split_sizes}
+\inputtable{q1_split_comparison}
+\fig{q1_split_deviation}{Absolute deviation of the positive-class proportion of each partition from the reference proportion, over 100 seeds.}
+
+% TODO(student): interpret
+\studenttodo{Q1b: justify the 70/15/15 + CV design; compare stratified vs.\ random deviations (full vs.\
+small sample: zero/few positives in val/test); when can stratification itself fail (e.g.\ very rare classes,
+temporal/grouped data, distribution shift, multi-label)?}
+
+\subsection{Q1c: Leakage-safe preprocessing}
+All transformations are steps of an sklearn/imblearn \texttt{Pipeline} (\texttt{src/preprocessing.py}) and are
+therefore fit only on the training data or on the training folds of cross-validation. Numeric features: median
+imputation, then standardisation (LogReg, kNN, GaussianNB) or quantile discretisation (BernoulliNB) or no
+scaling (trees). Categorical features: missing values mapped to an explicit \texttt{"missing"} level, then
+one-hot encoding with \texttt{handle\_unknown="ignore"} (unseen categories become an all-zero vector). The only
+row-wise engineering (no fitted statistics) is the indicator \texttt{prev\_contacted} = [\texttt{pdays} $\neq -1$].
+\inputtable{q1_transform_matrix}
+
+% TODO(student): interpret
+\studenttodo{Q1c: explain why each transformation matters (or not) for each model family (scale sensitivity of
+distances/penalties, NB distributional assumptions, split invariance of trees); justify the constant
+\texttt{"missing"} level instead of most-frequent imputation.}
+
+\subsection{Q1d: Controlled leakage demonstration}
+Model: Logistic Regression ($C=1$, \texttt{class\_weight=balanced}). Rows labelled \textbf{INVALID} are
+deliberately wrong and are used only for this demonstration: INVALID\_1 includes \texttt{duration};
+INVALID\_2 fits scaling and \texttt{SelectKBest}(k=20) on all development rows (train+validation) before CV;
+INVALID\_3 adds the mean target of a high-cardinality group (job $\times$ month $\times$ day) computed on all
+development rows including the row itself. The corresponding valid procedures fit the same steps inside the
+pipeline (for target encoding, sklearn's cross-fitted \texttt{TargetEncoder}). The test set is not used.
+\inputtable{q1_leakage_demo}
+\fig{q1_leakage_demo}{Cross-validation and validation Macro-F1 of valid vs.\ deliberately INVALID procedures.}
+
+% TODO(student): interpret
+\studenttodo{Q1d: quantify the apparent improvement of each INVALID procedure over its valid counterpart and
+explain why it is untrustworthy (information unavailable at prediction time / information from evaluation rows
+entering the fit). Note which leakage was large and which was small here and why (e.g.\ global scaling with
+31k rows changes little; target encoding of rare groups memorises labels).}
+
+\subsection{Q1e: Protocol diagram and failure modes}
+\fig{q1_protocol}{Experimental protocol.}
+
+% TODO(student): interpret
+\studenttodo{Q1e: explain at least three failure modes that invalidate results even if the code runs (e.g.\
+preprocessing fit outside folds, selecting on test, leaking post-outcome features, duplicate/near-duplicate
+rows across partitions, temporal ordering of campaigns, threshold tuned on evaluation data, unstable single
+split / no variance estimate).}

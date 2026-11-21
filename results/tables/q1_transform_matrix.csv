@@ -1,0 +1,8 @@
+transformation,LogReg,NaiveBayes (Gauss | Bern),kNN,Trees/Ensembles
+Numeric: median imputation,yes,yes | yes,yes,yes
+Numeric: standardisation,"yes (optimisation, penalty)",yes | n/a,yes (distances),no (split-invariant)
+Numeric: quantile discretisation,no,no | yes (binary features),no,no
+Categorical: constant 'missing' level,yes,yes | yes,yes,yes
+"Categorical: one-hot, handle_unknown=ignore",yes,yes | yes,yes,yes
+Class weighting / resampling (train only),class_weight,n/a,n/a (resampling only),class_weight / sample_weight
+Leaky feature 'duration',dropped,dropped,dropped,dropped

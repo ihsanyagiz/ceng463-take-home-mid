@@ -1,0 +1,27 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q5c paired bootstrap of the Macro-F1 difference (validation)}
+\label{tab:q5_bootstrap}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+quantity & value \\
+\midrule
+model\_A & RandomForest \\
+model\_B & NaiveBayes \\
+B & 10000 \\
+seed & 42 \\
+n\_validation & 6782 \\
+observed\_delta & 0.0444 \\
+ci95\_percentile & [np.float64(0.030378661650310324), np.float64(0.058252308664035905)] \\
+bootstrap\_mean & 0.0444 \\
+bootstrap\_sd & 0.0071 \\
+frac\_delta\_gt\_0 & 1.0000 \\
+macro\_f1\_A & 0.7064 \\
+macro\_f1\_B & 0.6620 \\
+n\_disagreements & 571 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

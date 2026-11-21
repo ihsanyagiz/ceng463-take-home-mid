@@ -1,0 +1,7 @@
+procedure,valid,cv_macro_f1,cv_macro_f1_std,cv_roc_auc,val_macro_f1,val_roc_auc,description
+VALID,True,0.6114339871912918,0.00397960615991299,0.7646790585039589,0.6120521160126419,0.7719580639027845,duration dropped; impute/scale/encode fit inside training folds
+INVALID_1_duration,False,0.7292841710293789,0.00559939143214563,0.9106684082427788,0.7334305169673973,0.9101551129126432,"INVALID: uses duration, which is only known after the outcome"
+INVALID_2_global_scale_kbest,False,0.6022668037576508,0.002990731385838558,0.7531453775093067,0.6086064046456898,0.7642624669994902,INVALID: scaling + SelectKBest(k=20) fit on train+val before CV/validation
+VALID_scale_kbest_in_pipeline,True,0.5972943238616197,0.0040195508645975075,0.7497411772833419,0.5947873980437439,0.7574075523002344,same steps as INVALID_2 but fit inside folds
+INVALID_3_target_encoding_all_rows,False,0.7025801966209194,0.00547060225422808,0.8383359100199511,0.7059143661720102,0.8441753363990787,INVALID: group mean of y computed on train+val (incl. own row)
+VALID_target_encoding_in_pipeline,True,0.6323846190797192,0.00504868920276407,0.7745615009417026,0.6367292721612844,0.7831418504515328,TargetEncoder (internal cross-fitting) inside training folds

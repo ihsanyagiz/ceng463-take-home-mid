@@ -1,0 +1,28 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q5d sensitivity: winner under alternative weight schemes}
+\label{tab:q5_sensitivity_schemes}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+scheme & winner & winner\_score & runner\_up \\
+\midrule
+base & NaiveBayes & 0.7667 & RandomForest \\
+equal & NaiveBayes & 0.8027 & LogReg \\
+performance-heavy (0.6) & RandomForest & 0.8018 & NaiveBayes \\
+robustness-heavy (0.6) & NaiveBayes & 0.9079 & RandomForest \\
+interpretability-heavy (0.6) & DecisionTree & 0.8418 & NaiveBayes \\
+cost-heavy & NaiveBayes & 0.8783 & DecisionTree \\
+performance only & RandomForest & 1.0000 & NaiveBayes \\
+base without performance & NaiveBayes & 0.8588 & LogReg \\
+base without robustness & NaiveBayes & 0.7083 & RandomForest \\
+base without stability & NaiveBayes & 0.7428 & DecisionTree \\
+base without interpretability & RandomForest & 0.8538 & NaiveBayes \\
+base without train\_cost & NaiveBayes & 0.7587 & RandomForest \\
+base without inference\_cost & NaiveBayes & 0.7584 & RandomForest \\
+base without implementation & NaiveBayes & 0.7807 & RandomForest \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

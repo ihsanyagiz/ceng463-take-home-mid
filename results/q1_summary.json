@@ -1,0 +1,22 @@
+{
+  "split_sizes": [
+    {
+      "partition": "train",
+      "n": 31647,
+      "n_pos": 3702,
+      "pos_rate": 0.11697791259835055
+    },
+    {
+      "partition": "val",
+      "n": 6782,
+      "n_pos": 794,
+      "pos_rate": 0.11707460925980537
+    },
+    {
+      "partition": "test",
+      "n": 6782,
+      "n_pos": 793,
+      "pos_rate": 0.11692716012975524
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q5d winner frequency over 5000 Dirichlet weight vectors: uniform (alpha=1) and centred on the base weights (alpha=20*w)}
+\label{tab:q5_dirichlet_wins}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lll}
+\toprule
+model & win\_freq\_uniform\_alpha1 & win\_freq\_centered\_alpha20w \\
+\midrule
+NaiveBayes & 0.6482 & 0.6328 \\
+RandomForest & 0.0368 & 0.3276 \\
+DecisionTree & 0.1028 & 0.0396 \\
+GradientBoosting & 0.0000 & 0.0000 \\
+kNN & 0.0000 & 0.0000 \\
+AdaBoost & 0.0000 & 0.0000 \\
+LogReg & 0.2122 & 0.0000 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

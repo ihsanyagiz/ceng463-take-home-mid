@@ -1,0 +1,10 @@
+{
+  "name": "kNN",
+  "params": {
+    "n_neighbors": 3,
+    "p": 1,
+    "weights": "uniform"
+  },
+  "source": "Q2",
+  "cv_macro_f1": 0.6245907632903371
+}

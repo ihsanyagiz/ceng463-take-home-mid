@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q1d leakage demonstration (LogReg C=1, class\_weight=balanced). INVALID rows are deliberately wrong.}
+\label{tab:q1_leakage_demo}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllll}
+\toprule
+procedure & valid & cv\_macro\_f1 & cv\_macro\_f1\_std & cv\_roc\_auc & val\_macro\_f1 & val\_roc\_auc \\
+\midrule
+VALID & True & 0.6114 & 0.0040 & 0.7647 & 0.6121 & 0.7720 \\
+INVALID\_1\_duration & False & 0.7293 & 0.0056 & 0.9107 & 0.7334 & 0.9102 \\
+INVALID\_2\_global\_scale\_kbest & False & 0.6023 & 0.0030 & 0.7531 & 0.6086 & 0.7643 \\
+VALID\_scale\_kbest\_in\_pipeline & True & 0.5973 & 0.0040 & 0.7497 & 0.5948 & 0.7574 \\
+INVALID\_3\_target\_encoding\_all\_rows & False & 0.7026 & 0.0055 & 0.8383 & 0.7059 & 0.8442 \\
+VALID\_target\_encoding\_in\_pipeline & True & 0.6324 & 0.0050 & 0.7746 & 0.6367 & 0.7831 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

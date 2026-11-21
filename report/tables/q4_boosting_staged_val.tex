@@ -1,0 +1,70 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4d staged train/validation Macro-F1 (fit on train)}
+\label{tab:q4_boosting_staged_val}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+model & learning\_rate & n\_estimators & train\_macro\_f1 & val\_macro\_f1 \\
+\midrule
+AdaBoost & 0.0500 & 10 & 0.6118 & 0.6222 \\
+AdaBoost & 0.0500 & 25 & 0.6118 & 0.6222 \\
+AdaBoost & 0.0500 & 50 & 0.6118 & 0.6222 \\
+AdaBoost & 0.0500 & 100 & 0.6118 & 0.6222 \\
+AdaBoost & 0.0500 & 150 & 0.6118 & 0.6222 \\
+AdaBoost & 0.0500 & 200 & 0.5426 & 0.5414 \\
+AdaBoost & 0.0500 & 300 & 0.5432 & 0.5424 \\
+AdaBoost & 0.0500 & 400 & 0.5432 & 0.5424 \\
+AdaBoost & 0.1000 & 10 & 0.6118 & 0.6222 \\
+AdaBoost & 0.1000 & 25 & 0.6118 & 0.6222 \\
+AdaBoost & 0.1000 & 50 & 0.6118 & 0.6222 \\
+AdaBoost & 0.1000 & 100 & 0.5426 & 0.5414 \\
+AdaBoost & 0.1000 & 150 & 0.5432 & 0.5424 \\
+AdaBoost & 0.1000 & 200 & 0.5698 & 0.5704 \\
+AdaBoost & 0.1000 & 300 & 0.5759 & 0.5784 \\
+AdaBoost & 0.1000 & 400 & 0.5874 & 0.5893 \\
+AdaBoost & 0.5000 & 10 & 0.5426 & 0.5414 \\
+AdaBoost & 0.5000 & 25 & 0.5874 & 0.5878 \\
+AdaBoost & 0.5000 & 50 & 0.5965 & 0.6001 \\
+AdaBoost & 0.5000 & 100 & 0.5722 & 0.5734 \\
+AdaBoost & 0.5000 & 150 & 0.5967 & 0.5951 \\
+AdaBoost & 0.5000 & 200 & 0.6017 & 0.6017 \\
+AdaBoost & 0.5000 & 300 & 0.6130 & 0.6114 \\
+AdaBoost & 0.5000 & 400 & 0.6169 & 0.6173 \\
+AdaBoost & 1.0000 & 10 & 0.5413 & 0.5444 \\
+AdaBoost & 1.0000 & 25 & 0.5614 & 0.5664 \\
+AdaBoost & 1.0000 & 50 & 0.5727 & 0.5730 \\
+AdaBoost & 1.0000 & 100 & 0.5981 & 0.5982 \\
+AdaBoost & 1.0000 & 150 & 0.6055 & 0.6005 \\
+AdaBoost & 1.0000 & 200 & 0.6138 & 0.6105 \\
+AdaBoost & 1.0000 & 300 & 0.6227 & 0.6222 \\
+AdaBoost & 1.0000 & 400 & 0.6216 & 0.6188 \\
+GradientBoosting & 0.0500 & 10 & 0.5434 & 0.5422 \\
+GradientBoosting & 0.0500 & 25 & 0.5746 & 0.5760 \\
+GradientBoosting & 0.0500 & 50 & 0.6148 & 0.6078 \\
+GradientBoosting & 0.0500 & 100 & 0.6388 & 0.6316 \\
+GradientBoosting & 0.0500 & 150 & 0.6531 & 0.6474 \\
+GradientBoosting & 0.0500 & 200 & 0.6611 & 0.6547 \\
+GradientBoosting & 0.0500 & 300 & 0.6700 & 0.6636 \\
+GradientBoosting & 0.0500 & 400 & 0.6735 & 0.6674 \\
+GradientBoosting & 0.1000 & 10 & 0.5774 & 0.5784 \\
+GradientBoosting & 0.1000 & 25 & 0.6137 & 0.6123 \\
+GradientBoosting & 0.1000 & 50 & 0.6379 & 0.6315 \\
+GradientBoosting & 0.1000 & 100 & 0.6627 & 0.6564 \\
+GradientBoosting & 0.1000 & 150 & 0.6699 & 0.6637 \\
+GradientBoosting & 0.1000 & 200 & 0.6766 & 0.6663 \\
+GradientBoosting & 0.1000 & 300 & 0.6852 & 0.6698 \\
+GradientBoosting & 0.1000 & 400 & 0.6938 & 0.6736 \\
+GradientBoosting & 0.2000 & 10 & 0.6101 & 0.6078 \\
+GradientBoosting & 0.2000 & 25 & 0.6337 & 0.6251 \\
+GradientBoosting & 0.2000 & 50 & 0.6599 & 0.6539 \\
+GradientBoosting & 0.2000 & 100 & 0.6762 & 0.6694 \\
+GradientBoosting & 0.2000 & 150 & 0.6861 & 0.6681 \\
+GradientBoosting & 0.2000 & 200 & 0.6920 & 0.6710 \\
+GradientBoosting & 0.2000 & 300 & 0.7067 & 0.6688 \\
+GradientBoosting & 0.2000 & 400 & 0.7177 & 0.6732 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

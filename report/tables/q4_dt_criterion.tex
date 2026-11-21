@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q4b best CV configuration per split criterion (5-fold, Macro-F1)}
+\label{tab:q4_dt_criterion}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllllll}
+\toprule
+ccp\_alpha & class\_weight & criterion & max\_depth & min\_samples\_leaf & mean\_test\_score & std\_test\_score & mean\_train\_score & rank\_test\_score \\
+\midrule
+0.0010 & balanced & gini & -- & 20 & 0.6708 & 0.0248 & 0.6759 & 1 \\
+0.0010 & balanced & entropy & 12.0000 & 20 & 0.6560 & 0.0232 & 0.6676 & 12 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

@@ -1,0 +1,35 @@
+# Python / environment
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Raw data is re-downloaded automatically (ucimlrepo / scikit-learn)
+data/raw/
+
+# Course material (instructor's copy of the assignment)
+CENG463_Fall_2026_27_TakeHome.pdf
+
+# LaTeX build artefacts (main.pdf itself is kept)
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.lot
+report/*.lof
+report/*.fls
+report/*.fdb_latexmk
+report/*.synctex.gz
+report/*.bbl
+report/*.blg
+report/*.tdo
+
+# Submission archive
+CENG463_Midterm_*.zip
+
+# Editor / OS
+.vscode/
+.idea/
+.claude/
+Thumbs.db
+.DS_Store

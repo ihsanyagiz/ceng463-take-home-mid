@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q2b selected hyper-parameters (by CV Macro-F1)}
+\label{tab:q2_best_params}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+model & best\_params \\
+\midrule
+LogReg & \{'C': 10.0, 'class\_weight': 'balanced'\} \\
+NaiveBayes & \{'representation': 'bernoulli', 'alpha': 1.0, 'n\_bins': 5\} \\
+kNN & \{'n\_neighbors': 3, 'p': 1, 'weights': 'uniform'\} \\
+Dummy & \{\} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

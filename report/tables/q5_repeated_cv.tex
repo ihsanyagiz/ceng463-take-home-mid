@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q5a repeated stratified CV (5x3) Macro-F1 on train}
+\label{tab:q5_repeated_cv}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllll}
+\toprule
+model & cv\_mean\_macro\_f1 & cv\_std\_macro\_f1 & cv\_min & cv\_max & n\_folds \\
+\midrule
+RandomForest & 0.6969 & 0.0057 & 0.6858 & 0.7070 & 15 \\
+NaiveBayes & 0.6647 & 0.0052 & 0.6580 & 0.6758 & 15 \\
+GradientBoosting & 0.6636 & 0.0058 & 0.6518 & 0.6711 & 15 \\
+DecisionTree & 0.6635 & 0.0229 & 0.6198 & 0.7015 & 15 \\
+kNN & 0.6223 & 0.0066 & 0.6137 & 0.6345 & 15 \\
+AdaBoost & 0.6184 & 0.0068 & 0.6060 & 0.6273 & 15 \\
+LogReg & 0.6101 & 0.0048 & 0.6035 & 0.6183 & 15 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

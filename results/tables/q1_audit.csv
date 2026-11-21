@@ -1,0 +1,18 @@
+feature,dtype,n_missing_unknown,pct_missing_unknown,n_unique,min,median,max,n_iqr_outliers,note
+age,int64,0,0.0,77,18.0,39.0,95.0,487.0,
+job,object,288,0.6370131162770122,11,,,,,
+marital,object,0,0.0,3,,,,,
+education,object,1857,4.1074074893278185,3,,,,,
+default,object,0,0.0,2,,,,,very rare 'yes' level
+balance,int64,0,0.0,7168,-8019.0,448.0,102127.0,4729.0,negative values and heavy right tail
+housing,object,0,0.0,2,,,,,
+loan,object,0,0.0,2,,,,,
+contact,object,13020,28.798301298356595,2,,,,,'unknown' kept as 'missing' level
+day_of_week,int64,0,0.0,31,1.0,16.0,31.0,0.0,actually day of month (1-31) in UCI file
+month,object,0,0.0,12,,,,,
+duration,int64,0,0.0,1573,0.0,180.0,4918.0,3235.0,LEAKAGE: known only after the call (outcome-dependent); excluded
+campaign,int64,0,0.0,48,1.0,2.0,63.0,3064.0,heavy right tail (extreme call counts)
+pdays,int64,0,0.0,559,-1.0,-1.0,871.0,8257.0,sentinel -1 = never contacted; flag prev_contacted added
+previous,int64,0,0.0,41,0.0,0.0,275.0,8257.0,heavy right tail; 0 for never-contacted
+poutcome,object,36959,81.74780473778506,3,,,,,mostly missing = no previous campaign; kept as 'missing' level
+y,object,0,0.0,2,,,,,target (yes=1); imbalanced

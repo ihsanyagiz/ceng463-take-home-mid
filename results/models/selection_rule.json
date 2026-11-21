@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-11-21T18:44:00",
+  "candidates": {
+    "LogReg": {
+      "C": 10.0,
+      "class_weight": "balanced"
+    },
+    "NaiveBayes": {
+      "representation": "bernoulli",
+      "alpha": 1.0,
+      "n_bins": 5
+    },
+    "kNN": {
+      "n_neighbors": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    "DecisionTree": {
+      "ccp_alpha": 0.001,
+      "class_weight": "balanced",
+      "criterion": "gini",
+      "max_depth": 12,
+      "min_samples_leaf": 20
+    },
+    "RandomForest": {
+      "n_estimators": 100,
+      "class_weight": "balanced_subsample",
+      "max_depth": null,
+      "max_features": 0.5,
+      "min_samples_leaf": 5
+    },
+    "AdaBoost": {
+      "n_estimators": 400,
+      "learning_rate": 1.0,
+      "balanced_weights": true
+    },
+    "GradientBoosting": {
+      "n_estimators": 400,
+      "learning_rate": 0.1,
+      "balanced_weights": true
+    }
+  },
+  "selection_rule": "highest weighted MCDA score using config.MCDA_BASE_WEIGHTS (criteria computed from train CV and validation only)",
+  "selected_model": "NaiveBayes",
+  "base_weights": {
+    "performance": 0.4,
+    "robustness": 0.2,
+    "stability": 0.1,
+    "interpretability": 0.15,
+    "train_cost": 0.05,
+    "inference_cost": 0.05,
+    "implementation": 0.05
+  },
+  "refit_on": "trainval",
+  "config_hash": "f31189d536e771f8490e9475adf9e5f2a79c5539b9ac6652da430895d283bde2"
+}

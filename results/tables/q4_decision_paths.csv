@@ -1,0 +1,5 @@
+case,val_row_position,path,leaf_class_distribution(weighted),predicted,true
+"predicted yes, true yes",1893,poutcome_success = 0 <= 0.5 AND contact_missing = 0 <= 0.5 AND housing_yes = 0 <= 0.5,"[0.409, 0.591]",yes,yes
+"predicted no, true no",0,poutcome_success = 0 <= 0.5 AND contact_missing = 1 > 0.5 AND marital_married = 0 <= 0.5,"[0.686, 0.314]",no,no
+"predicted no, true yes (error)",14,poutcome_success = 0 <= 0.5 AND contact_missing = 1 > 0.5 AND marital_married = 1 > 0.5,"[0.811, 0.189]",no,yes
+"predicted yes, true no (error)",1888,poutcome_success = 0 <= 0.5 AND contact_missing = 0 <= 0.5 AND housing_yes = 0 <= 0.5,"[0.409, 0.591]",yes,no

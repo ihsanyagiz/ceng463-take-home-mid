@@ -1,0 +1,15 @@
+scheme,winner,winner_score,runner_up
+base,NaiveBayes,0.7666734030209758,RandomForest
+equal,NaiveBayes,0.8027410741578751,LogReg
+performance-heavy (0.6),RandomForest,0.8018240858674982,NaiveBayes
+robustness-heavy (0.6),NaiveBayes,0.9079458346070084,RandomForest
+interpretability-heavy (0.6),DecisionTree,0.8418269158392848,NaiveBayes
+cost-heavy,NaiveBayes,0.8783403566713178,DecisionTree
+performance only,RandomForest,1.0,NaiveBayes
+base without performance,NaiveBayes,0.8588329172569272,LogReg
+base without robustness,NaiveBayes,0.7083417537762196,RandomForest
+base without stability,NaiveBayes,0.742758415988671,DecisionTree
+base without interpretability,RandomForest,0.8537908248729464,NaiveBayes
+base without train_cost,NaiveBayes,0.7586923695897049,RandomForest
+base without inference_cost,NaiveBayes,0.7584001402197335,RandomForest
+base without implementation,NaiveBayes,0.7807088452852374,RandomForest

@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Q2d controlled class-imbalance interventions (only the imbalance handling differs)}
+\label{tab:q2_imbalance}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllllllllll}
+\toprule
+variant & cv\_macro\_f1 & cv\_std & val\_accuracy & val\_macro\_f1 & val\_recall\_no & val\_recall\_yes & val\_precision\_yes & val\_roc\_auc & FP & FN & error\_rate\_no & error\_rate\_yes \\
+\midrule
+LogReg | none & 0.6044 & 0.0075 & 0.8931 & 0.6133 & 0.9875 & 0.1814 & 0.6575 & 0.7698 & 75 & 650 & 0.0125 & 0.8186 \\
+LogReg | class\_weight=balanced & 0.6117 & 0.0041 & 0.7572 & 0.6132 & 0.7742 & 0.6285 & 0.2696 & 0.7719 & 1352 & 295 & 0.2258 & 0.3715 \\
+LogReg | RandomOverSampler (train only) & 0.6123 & 0.0042 & 0.7561 & 0.6122 & 0.7732 & 0.6272 & 0.2683 & 0.7708 & 1358 & 296 & 0.2268 & 0.3728 \\
+LogReg | SMOTE (train only) & 0.6070 & 0.0050 & 0.7461 & 0.6043 & 0.7615 & 0.6297 & 0.2593 & 0.7663 & 1428 & 294 & 0.2385 & 0.3703 \\
+kNN | none & 0.6246 & 0.0077 & 0.8801 & 0.6298 & 0.9641 & 0.2469 & 0.4769 & 0.6853 & 215 & 598 & 0.0359 & 0.7531 \\
+kNN | RandomOverSampler (train only) & 0.6033 & 0.0039 & 0.8071 & 0.6190 & 0.8550 & 0.4458 & 0.2897 & 0.6781 & 868 & 440 & 0.1450 & 0.5542 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

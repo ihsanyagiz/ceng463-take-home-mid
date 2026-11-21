@@ -1,0 +1,7 @@
+model,params
+Dummy(mean),{}
+OLS,{}
+Ridge,{'alpha': 0.0001}
+Lasso,{'alpha': 0.0006812920690579609}
+DecisionTree,"{'max_depth': None, 'min_samples_leaf': 20}"
+RandomForest,"{'n_estimators': 200, 'max_depth': None, 'max_features': 0.33, 'min_samples_leaf': 1}"

@@ -1,0 +1,23 @@
+\section{Introduction, research questions, and datasets}
+\label{sec:intro}
+
+% TODO(student): interpret / motivate the study in your own words
+\studenttodo{Motivation of the study and the research questions in your own words, e.g.:
+(i) how much does a leakage-safe protocol change reported performance (Q1);
+(ii) how do linear, probabilistic and instance-based classifiers compare on an imbalanced, mixed-type task (Q2);
+(iii) how do complexity and regularisation affect regression generalisation (Q3);
+(iv) what do tree ensembles add over single trees and the Q2 models (Q4);
+(v) which model is defensible when performance, robustness, uncertainty and cost are all considered (Q5).}
+
+\paragraph{Classification dataset (Q1, Q2, Q4, Q5).}
+UCI Bank Marketing (\texttt{bank-full}, UCI id 222, \cite{moro2014bank}), loaded with \texttt{ucimlrepo} and cached in
+\texttt{data/raw/}. Each row is one client contacted in a Portuguese bank's direct-marketing phone campaign; the
+binary target \texttt{y} indicates whether the client subscribed to a term deposit. The table has \NTotal{} rows
+and 16 predictors (7 integer, 9 categorical); the overall positive rate is \PosRate{}
+(Table~\ref{tab:q1_class_dist}). Categorical values recorded as \texttt{"unknown"} are delivered as missing
+values by \texttt{ucimlrepo}.
+
+\paragraph{Regression dataset (Q3).}
+California Housing \cite{pace1997sparse} via \texttt{sklearn.datasets.fetch\_california\_housing}: 20{,}640
+census block groups, 8 numeric predictors, target \texttt{MedHouseVal} = median house value in units of
+\$100{,}000 (capped at 5.0).

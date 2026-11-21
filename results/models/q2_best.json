@@ -1,0 +1,9 @@
+{
+  "best_q2_model": "NaiveBayes",
+  "params": {
+    "representation": "bernoulli",
+    "alpha": 1.0,
+    "n_bins": 5
+  },
+  "selection": "max CV Macro-F1 on train"
+}

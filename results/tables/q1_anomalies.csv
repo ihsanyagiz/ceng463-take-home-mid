@@ -1,0 +1,10 @@
+check,count
+rows,45211
+exact duplicate rows,0
+duplicate rows ignoring duration,16
+pdays == -1 (never contacted),36954
+balance < 0,3766
+campaign > 20,244
+previous > 50,4
+duration == 0,3
+rows with >=1 missing/unknown,37369
